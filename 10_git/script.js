@@ -4,6 +4,7 @@
 команды git
   git config- конфигурация гита;
   git status- статус;
+  
   git add -A- добавляет файлы в репозиторий;
   git commit -a -m"first commit"- создаем коммит;
   git push - пушит в удаленный репозиторий (гитхаб);
