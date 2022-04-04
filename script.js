@@ -1,4 +1,6 @@
 
 "use strict";
 
-console.log('arr' + "- object");
+
+const number0Films = +prompt ('сколько фильмов вы уже посмотрели?', '');
+alert (`вы посмотрели ${number0Films} фильмов`);
