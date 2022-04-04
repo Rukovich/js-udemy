@@ -1,11 +1,18 @@
 "use strict";
 
 /*
-&& - оператор И;
-\\ - оператор ИЛИ;
-!- оператор отрицания;
+команды git
+  git config- конфигурация гита;
+  git status- статус;
+  git add -A- добавляет файлы в репозиторий;
+  git commit -a -m"first commit"- создаем коммит;
+  git push - пушит в удаленный репозиторий (гитхаб);
+  git log- показывает логи коммиты;
+
+  git pull- обновляет изменения с удаленного репозитория;
 */
-const isChecked = true,
-  isClose = true;
-  console.log(isChecked && isClose);
+
+
+
+
 
