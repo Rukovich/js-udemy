@@ -1,53 +1,77 @@
+/* Задание на урок:
 
-"use strict";
+1) Первую часть задания повторить по уроку
 
-/*
-СТРОКИ:
-.lenght- кол-во символов или эл-в внутри массива;
-string mda-документация.
+2) Создать функцию showMyDB, которая будет проверять свойство privat. Если стоит в позиции
+false - выводит в консоль главный объект программы
 
-console.dir- выводит элемент в виде объекта;
+3) Создать функцию writeYourGenres в которой пользователь будет 3 раза отвечать на вопрос 
+"Ваш любимый жанр под номером ${номер по порядку}". Каждый ответ записывается в массив данных
+genres
 
-.toUpperCase- Изменение регистра в верхний;
-.toLowerCase- Изменение регистра в нижний;
+P.S. Функции вызывать не обязательно*/
 
-.indexOf()- метод позволяет найти кусок строки и подсказывает с какой позиции 
-начинается (поиск подстроки);
+'use strict';
 
-.slice()- Вырезает строку;
+let number0Films;
 
-ЧИСЛА:
-Math. -Команда в браузере показывает методы числа; 
-parseInt()- Переводит число в другую систему измерения;
-*/
+function start() {
+  number0Films = +prompt ('сколько фильмов вы уже посмотрели?', '');
 
-const str = 'teSt';
-const arr = [1, 2, 4];
+  while(number0Films == '' || number0Films == null || isNaN(number0Films)) {
+    number0Films = +prompt ('сколько фильмов вы уже посмотрели?', '');
+  }
+}
+start();
 
-// получаем 3-ю букву из строки
-console.log(str[2]);
+const personalMovieDB ={
+  count: number0Films,
+  movies: {},
+  actors: {},
+  genres: [],
+  privat: false,
+};
 
-//Изменение регистра
-console.log(str.toUpperCase());
-console.log(str.toLowerCase());
+function rememberMyFilms() {
+  for (let i = 0; i < 2; i++) {
+    const a = prompt ('один из просмотренных фильмов', '');
+    const b = prompt ('На сколько оцените его?', '');
+  
+    if (a != null && b != null && a != '' && b !='' && a.length < 50) {
+      personalMovieDB.movies[a] = b;
+      console.log('done');
+    } else {
+      console.log('error!');
+      i--;
+    }
+  }
+}
+rememberMyFilms();
 
-//Поиск подстроки .indexOf()
-const fruit = 'Some fruit';
-console.log(fruit.indexOf('fruit'));
 
-//Вырезает строку .slice; 
-const logg = 'Hello world!';
-console.log(logg.slice(6, 11));
+function detectPersonalLavel() {
+  if (personalMovieDB.count < 10) {
+    console.log('Просмотрено довольно мало фильмов');
+  } else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
+    console.log('Вы классический зритель');
+  } else if (personalMovieDB.count > 30) {
+    console.log('Вы киноман');
+  } else {
+    console.log ('Произошла ошибка');
+  }
+}
+detectPersonalLavel();
 
-const logg1 = 'Hello world!';
-console.log(logg1.substr(6, 5));
+function showMyDB(hidden) {
+  if (!hidden) {
+    console.log(personalMovieDB);
+  }
+}
+showMyDB(personalMovieDB.privat);
 
-
-//ЧИСЛА
-
-const num = 12.2;
-console.log(Math.round(num));
-
-const test = "12.2px";
-console.log(parseInt(test));
-console.log(parseFloat(test)); //Берет число или строко и возвращает в десятичном;
+function writeYourGenres() {
+  for (let i = 1; i < 4; i++) {
+   personalMovieDB.genres[i - 1] = prompt (`Ваш любимый жанр под номером ${i}`, '');
+  }
+}
+writeYourGenres();
