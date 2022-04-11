@@ -21,7 +21,7 @@ delete options.name; //Удаляем из объекта name
 
 /*
 Перебираем объект методом for in.
-key- обозначаемсвойство
+key- обозначаем свойство
 */
 
 // for (let key in options) {

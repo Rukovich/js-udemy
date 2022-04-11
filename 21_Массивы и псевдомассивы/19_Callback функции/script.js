@@ -33,7 +33,7 @@ for (let value of arr) {
 const arr1 = [0, 5, 2, 4, 6, 8];
 
 arr1.forEach(function(item, i, arr1) {
-console.log(`${i}: ${item} внутри массива ${arr1}`)
+console.log(`${i}: ${item} внутри массива ${arr1}`);
 });
 
 /*
