@@ -1,6 +1,5 @@
 * {
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
   font-family: Roboto;
   font-style: normal;
@@ -14,7 +13,7 @@
 
 h1 {
   text-align: center;
-  margin-top: 10px;
+  margin-block: 10px;
   font-weight: 700;
   font-size: 18px;
 }
@@ -29,11 +28,17 @@ h3 {
 
 li {
   padding-left: 10px;
+  font-size: 14px;
 }
 
 code {
-  color: rgb(22, 172, 67);
+  color: rgb(0, 138, 41);
   font-size: 14px;
+}
+
+img {
+  width: 100%;
+  max-width: 80vw;
 }
 
 .home {
