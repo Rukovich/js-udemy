@@ -37,8 +37,9 @@ code {
 }
 
 img {
-  width: 100%;
-  max-width: 80vw;
+  display: block;
+  margin-inline: auto;
+  max-width: 100%;
 }
 
 .home {
