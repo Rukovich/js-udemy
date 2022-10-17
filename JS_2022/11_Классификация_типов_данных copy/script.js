@@ -17,7 +17,7 @@ console.log(und); //undefined
 
 /*
 Рассмотрим объекты и как к ним обращаться
-*/ 
+*/
 const obj = {
   name: 'John',
   age: 25,
