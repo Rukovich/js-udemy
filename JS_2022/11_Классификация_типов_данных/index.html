@@ -40,12 +40,34 @@
     isMarried: false
     };</code>
   </pre>
-  <p>можем обращаться через ".", либо через "[]"</p>
+  <p>Обращение к элементу происходит через ".", либо через "[]"</p>
   <pre>
     <code>console.log(obj.name); //John
     console.log(obj['name']); //John</code>
   </pre>
+  <p>В объект можно добавить значение или переменную, с помощью "." или [].</p>
+  <pre>
+    <code>obj.weight = '60';
+    obj['height'] = 160;
+      
+    console.log(obj.weight); //60
+    console.log(obj.height); //160</code>
+  </pre>
 
+  <p>Внутри объектов возможно создавать вложенные структуры, например:</p>
+  <pre>
+    <code>const object = {
+      name: 'John',
+      age: 25,
+      isMarried: false,
+      children: {
+        name: 'Alex',
+          friend: {
+            name: 'Jack'
+          }
+      }
+    };</code>
+  </pre>
   <h3>Рассмотрим массивы и как к ним обращаться</h3>
   <pre>
     <code>let arr = ['plump.png', 'orange.jpg', 'apple.bmp'];
