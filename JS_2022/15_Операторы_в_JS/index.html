@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../style.css">
+  <title>Операторы в JS</title>
+</head>
+
+<body>
+  <a href="../../index.html">
+    <div class="home">в начало</div>
+  </a>
+
+  <!-- Тема -->
+  <h1>Операторы в JS</h1>
+  <h3>Инкременты и декременты</h3>
+  <p><span>Инкремент ("++")</span>- это унарные операции, которые увеличивают записанное в переменную число на единицу.
+    <br>
+    <span>декремент ("--")</span>- это унарные операции, которые уменьшают записанное в переменную число на единицу.
+  </p>
+  <!-- код -->
+  <pre><code>let incr = 10;
+let decr = 10;
+    
+incr++;
+decr--;
+    
+console.log(incr); //11
+console.log(decr); //9</code></pre>
+
+  <p>Если операторы расположены перед значением, это называется <span>"префиксной"</span> формой, если
+    после-<span>"постфиксной"</span>.
+  </p>
+  <!-- код -->
+  <pre><code>++incr; //Prefix
+incr++; //postfix</code></pre>
+
+  <p>Если мы сразу используем инкремент или декримент в постфиксной форме,
+    в таком случае постфиксная форма сначала возвращает старое значение (10),
+    оно попадает в консоль и после этого инкремент или декримент изменяет значение.</p>
+  <!-- код -->
+  <pre><code>let incr = 10;
+let decr = 10;
+    
+console.log(incr++); //10
+console.log(decr--); //10</code></pre>
+
+  <h3>"%"- оператор остатка</h3>
+  <p>возвращает остаток от деления 2-х чисел.</p>
+  <!-- код -->
+  <pre><code>console.log(5 % 2); // 1</code></pre>
+
+  <h3>"==" и "==="- операторы сравнения.</h3>
+  <p>
+    <br>
+    <span>"="</span>- оператор <span>не строго сравнения</span>, не берет в расчет какой это тип данных, строка или
+    число;
+    <br>
+    <span>"==="</span>- оператор <span>строго сравнения</span>, учитывает какой тип данных сравнивается.
+  </p>
+  <!-- код -->
+  <pre><code>console.log(2 * 4 === '8'); //false
+console.log(2 * 4 === 8); //true</code></pre>
+
+  <h3>"&&"- Оператор "И", "||"- оператор "или"</h3>
+  <p>
+    Оператор <span>&&</span> работает когда только 2 или больше значений являются правдивыми выражениями.
+  </p>
+  <!-- код -->
+  <pre><code>const isChecked = true;
+const isClose = true;
+
+console.log(isChecked && isClose); //true (оба выражения верны)</code></pre>
+
+  <p>
+    Оператор <span>||</span> работает когда хотя бы один из вариантов правдивый
+  </p>
+  <!-- код -->
+  <pre><code>const isChecked = true;
+const isClose = false;
+
+console.log(isChecked || isClose); //true (одно из выражений верно)</code></pre>
+
+  <h3>"!"- оператор отрицания</h3>
+  <p><span>!</span> - Возвращает значение в обратное. Если было true, то обращает в false и наоборот
+  </p>
+  <!-- код -->
+  <pre><code>const isChecked = true;
+const isClose = false;
+      
+console.log(isChecked || !isClose); //true</code></pre>
+
+  <h3>"!="- оператор неравенства</h3>
+  <p>
+    Буквально означает, что одно значение не равно другому, например в коде ниже 6 не равно 8.
+    <br>
+    Так же есть строгое <span>!==</span> и не строгое <span>!=</span> сравнеение по типам.
+  </p>
+  <!-- код -->
+  <pre><code>console.log(2 + 2 * 2 != '8'); //true (6 не равно 8)</code></pre>
+
+
+  <h3>Порядок выполнения операторов</h3>
+  <p>В примере ниже у оператора умножения приоритет выше, чем у оператора сравнения, это стоит учитывать.
+    Для лучшего понимания приоритетности есть таблица операторов (ссылка в полезных ссылках).
+  </p>
+  <!-- код -->
+  <pre><code>console.log(2 + 2 * 2 === 8); //false</code></pre>
+
+  <h3>Полезные ссылки</h3>
+  <ul>
+    <li><a
+        href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#table">Таблица
+        приоритета операторов</a></li>
+    <li><a href="https://learn.javascript.ru/bitwise-operators"></a>Побитовые операторы</li>
+  </ul>
+
+  <!-- script -->
+  <script src="script.js"></script>
+</body>
+
+</html>

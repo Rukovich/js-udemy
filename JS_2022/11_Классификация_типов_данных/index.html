@@ -11,68 +11,61 @@
 
 <body>
 
-  <div class="home">
-    <a href="../../index.html">в начало</a>
-  </div>
+  <a href="../../index.html">
+    <div class="home">в начало</div>
+  </a>
   <!-- Тема -->
   <h1>Классификация типов данных</h1>
 
   <img src="date.PNG" alt="">
 
   <h3>Типы данных на примере кода</h3>
-  <pre>
-    <code>const number = 5;
+  <!-- код -->
+  <pre><code>const number = 5;
 
-    console.log(-4 / 0); //Infinity
-    console.log('string' * 9); //NaN
-    console.log(number == 5); //true (boolen)
+console.log(-4 / 0); //Infinity
+console.log('string' * 9); //NaN
+console.log(number == 5); //true (boolen)
 
-    let und;
-    console.log(und); //undefined</code>
-  </pre>
+let und;
+console.log(und); //undefined</code></pre>
 
   <h3>Рассмотрим объекты и как к ним обращаться</h3>
   <p>На примере объекта:</p>
-  <pre>
-    <code data-lang="javascript">const obj = {
-    name: 'John',
-    age: 25,
-    isMarried: false
-    };</code>
-  </pre>
+  <!-- код -->
+  <pre><code data-lang="javascript">const obj = {
+name: 'John',
+age: 25,
+isMarried: false
+};</code></pre>
   <p>Обращение к элементу происходит через ".", либо через "[]"</p>
-  <pre>
-    <code>console.log(obj.name); //John
-    console.log(obj['name']); //John</code>
-  </pre>
+  <!-- код -->
+  <pre><code>console.log(obj.name); //John
+console.log(obj['name']); //John</code></pre>
+
   <p>В объект можно добавить значение или переменную, с помощью "." или [].</p>
-  <pre>
-    <code>obj.weight = '60';
-    obj['height'] = 160;
+  <!-- код -->
+  <pre><code>obj.weight = '60';
+obj['height'] = 160;
       
-    console.log(obj.weight); //60
-    console.log(obj.height); //160</code>
-  </pre>
+console.log(obj.weight); //60
+console.log(obj.height); //160</code></pre>
 
   <p>Внутри объектов возможно создавать вложенные структуры, например:</p>
-  <pre>
-    <code>const object = {
-      name: 'John',
-      age: 25,
-      isMarried: false,
-      children: {
-        name: 'Alex',
-          friend: {
-            name: 'Jack'
-          }
+  <pre><code>const object = {
+  name: 'John',
+  age: 25,
+  isMarried: false,
+  children: {
+    name: 'Alex',
+      friend: {
+        name: 'Jack'
       }
-    };</code>
-  </pre>
+  }
+};</code></pre>
   <h3>Рассмотрим массивы и как к ним обращаться</h3>
-  <pre>
-    <code>let arr = ['plump.png', 'orange.jpg', 'apple.bmp'];
-  console.log(arr[1]); //orange.jpg</code>
-  </pre>
+  <pre><code>let arr = ['plump.png', 'orange.jpg', 'apple.bmp'];
+console.log(arr[1]); //orange.jpg</code></pre>
 
 
   <h3>полезные ссылки</h3>

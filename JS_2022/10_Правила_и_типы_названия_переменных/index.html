@@ -2,46 +2,43 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../style.css">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../style.css" />
   <title>Правила и типы названия переменных</title>
 </head>
 
 <body>
-
-  <div class="home">
-    <a href="../../index.html">в начало</a>
-  </div>
+  <a href="../../index.html">
+    <div class="home">в начало</div>
+  </a>
 
   <h1>Правила и типы названия переменных</h1>
 
   <h3>Как не стоит называть переменные</h3>
   <!-- фрагмент кода -->
-  <pre>
-      <code>const a = 5000;
-    const b = 4000;
-    console.log('Ширина кузова автомобиля:' + a + ', длина' + b);</code>
-  </pre>
+  <pre><code>const a = 5000;
+const b = 4000;
+console.log('Ширина кузова автомобиля:' + a + ', длина' + b);</code></pre>
 
   <h3>Как стоит</h3>
   <!-- фрагмент кода -->
-  <pre>
-      <code>const vehicleBodyWidth = 5000;
-    const vehicleBodylenght = 4000;
-    console.log('Ширина кузова автомобиля:' + vehicleBodyWidth + ', длина' + vehicleBodylenght);</code>
+  <pre><code>const vehicleBodyWidth = 5000;
+const vehicleBodylenght = 4000;
+console.log('Ширина кузова автомобиля:' + vehicleBodyWidth + ', длина' + vehicleBodylenght);</code>
   </pre>
 
   <h3>Какие бывают стили написания:</h3>
   <ul>
     <li>snake_case</li>
-    <li>UPPER_SNAKE_CASE- обычно так обозначают константы (COLOR_RED = '#F00');</li>
+    <li>
+      UPPER_SNAKE_CASE- обычно так обозначают константы (COLOR_RED = '#F00');
+    </li>
     <li>_apiKey- такое тоже лучше не трогать;</li>
     <li>kebab-case- слова через "-";</li>
     <li>PascalCase- Первая буква большая;</li>
   </ul>
-
 
   <script src="script.js"></script>
 </body>
