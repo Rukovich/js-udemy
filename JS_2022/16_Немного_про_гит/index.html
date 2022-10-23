@@ -14,25 +14,76 @@
     <div class="home">в начало</div>
   </a>
 
-  <!-- Тема -->
-  <h1>Немного про git</h1>
+  <div class="container">
+    <!-- Тема -->
+    <h1>Немного про git</h1>
 
-  <h3>Список команд для работы с гитом:</h3>
+    <h3>Список команд для работы с гитом:</h3>
+    <p>Переход в нужную папку репозиторий</p>
+    <pre><code>cd/...</code></pre>
+    <p>Установка конфигураций (--local -локально, --global -глобально)</p>
+    <pre><code>git config user.name "Stas" user email ..@gmail.com</code></pre>
+    <p>смотрим статус / файлы проекта</p>
+    <pre><code>git status</code></pre>
 
 
-  <h3>Полезные ссылки</h3>
-  <ul>
-    <li><a href="https://githowto.com/ru">Обучение Git'у и его возможностям</a></li>
-    <li><a
-        href="https://git-scm.com/book/ru/v2/%D0%92%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%9E-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B5-%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8F-%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D0%B9">Документация
-        по git</a>
-    </li>
-    <li>
-      <a href="https://learngitbranching.js.org/?locale=ru_RU">Игра про git</a>
-    </li>
-    <li><a href="https://www.codecademy.com/article/command-line-commands">Список команд терминала</a></li>
-    <li><a href="https://www.gitkraken.com/"></a>gitkraken</li>
-  </ul>
+    <h3>Работа с индексом</h3>
+    <p>Добавляем файлы в индекс</p>
+    <pre><code>git add</code></pre>
+    <p>Добавляем все файлы в индекс</p>
+    <pre><code>git add -A</code></pre>
+    <p>Добавляем в индекс все файлы в текущей папке</p>
+    <pre><code>git add.</code></pre>
+    <p>добавляем конкретный файл в индекс</p>
+    <pre><code>git add style.css</code></pre>
+
+    <h3>Работа с Коммитами</h3>
+    <p>Создаем коммит с описанием со всеми файлами</p>
+    <pre><code>git commit -a -m"first commit"</code></pre>
+    <p>смотрим логи коммитов</p>
+    <pre><code>git log</code></pre>
+
+    <h3>Работа с ветками</h3>
+    <p>создаем новую ветку</p>
+    <pre><code>git branch new-branch</code></pre>
+    <p>Переключаемся на новую ветку</p>
+    <pre><code>git checkout new-branch</code></pre>
+    <p>Содание и переключение на новую ветку одной командой</p>
+    <pre><code>git checkout -b new-branch</code></pre>
+    <p>Производит слияние 2-х веток. </p>
+    <pre><code>git checkout master
+git merge new-branch</code></pre>
+
+    <h3>Работа с Удаленными репозиторийми</h3>
+    <p>отправляем файлы в определенную ветку репозитория</p>
+    <pre><code>git push -u -origine master</code></pre>
+    <p>связывается с удалённым репозиторием и забирает из него все изменения, которых у вас пока нет и сохраняет их
+      локально</p>
+    <pre><code>git fetch</code></pre>
+    <p>работает как комбинация команд git fetch и git merge, т. е. Git вначале забирает изменения из указанного
+      удалённого
+      репозитория, а затем пытается слить их с текущей веткой</p>
+    <pre><code>git pull</code></pre>
+    <p>клонируем удаленный репозиторий себе на компьютер в конкретную папку</p>
+    <pre><code>git clone https://... it projects</code></pre>
+
+    <h3>Отмена действий</h3>
+    <pre><code>git restore</code></pre>
+
+    <h3>Полезные ссылки</h3>
+    <ul>
+      <li><a href="https://githowto.com/ru">Обучение Git'у и его возможностям</a></li>
+      <li><a
+          href="https://git-scm.com/book/ru/v2/%D0%92%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%9E-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B5-%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8F-%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D0%B9">Документация
+          по git</a>
+      </li>
+      <li>
+        <a href="https://learngitbranching.js.org/?locale=ru_RU">Игра про git</a>
+      </li>
+      <li><a href="https://www.codecademy.com/article/command-line-commands">Список команд терминала</a></li>
+      <li><a href="https://www.gitkraken.com/">gitkraken</a></li>
+    </ul>
+  </div>
 
   <!-- script -->
   <script src="script.js"></script>
