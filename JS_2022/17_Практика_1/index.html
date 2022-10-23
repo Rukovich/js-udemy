@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../style.css">
+  <title>Операторы в JS</title>
+</head>
+
+<body>
+  <a href="../../index.html">
+    <div class="home">в начало</div>
+  </a>
+
+  <div class="container">
+    <!-- Тема -->
+    <h1>Практичка ч.1. Начинаем создавать приложение</h1>
+    <h3>Задание:</h3>
+    <ol>
+      <li>
+        <p>Создать переменную numberOfFilms и в неё поместить ответ от пользователя на вопрос: <br>
+          'Сколько фильмов вы уже посмотрели?'</p>
+      </li>
+      <li>
+        <p>
+          Создать объект personalMovieDB и в него поместить такие свойства: <br>
+          - count - сюда передается ответ на первый вопрос <br>
+          - movies - в это свойство поместить пустой объект <br>
+          - actors - тоже поместить пустой объект <br>
+          - genres - сюда поместить пустой массив <br>
+          - privat - в это свойство поместить boolean(логическое) значение false <br>
+        </p>
+      </li>
+      <li>
+        <p> Задайте пользователю по два раза вопросы: <br>
+          - 'Один из последних просмотренных фильмов?'; <br>
+          - 'На сколько оцените его?' <br>
+        </p>
+        <p>Ответы стоит поместить в отдельные переменные
+          Записать ответы в объект movies в формате: </p>
+        <pre><code>movies: {
+'logan': '8.1'
+}</code></pre>
+      </li>
+    </ol>
+    <p>Проверить, чтобы все работало без ошибок в консоли</p>
+
+    <h3>Решение:</h3>
+    <pre><code>'use strict';
+
+const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+      
+const personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false
+};
+      
+const a = prompt('Один из последних просмотренных фильмов?', '');
+const b = prompt('На сколько оцените его?', '');
+const c = prompt('Один из последних просмотренных фильмов?', '');
+const d = prompt('На сколько оцените его?', '');
+      
+personalMovieDB.movies[a] = b;
+personalMovieDB.movies[c] = d;
+console.log(personalMovieDB);</code></pre>
+
+
+    <!-- <h3>Полезные ссылки</h3>
+    <ul>
+      <li><a href="#"></a></li>
+      <li><a href="#"></a></li>
+      <li><a href="#"></a></li>
+      <li><a href="#"></a></li>
+    </ul>
+  </div> -->
+
+    <!-- script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
