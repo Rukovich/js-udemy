@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../style.css">
+  <title>Условные ветвления</title>
+</head>
+
+<body>
+  <a href="../../index.html">
+    <div class="home">в начало</div>
+  </a>
+
+  <div class="container">
+    <!-- Тема -->
+    <h1>Условные ветвления</h1>
+    <h3>Условия if</h3>
+    <p>Условие <span>if(...)</span> («если») вычисляет условие в скобках и, если результат true, то выполняет блок кода.
+      <br>
+      Например:
+    </p>
+    <pre><code>if (4 == 4) {
+      console.log('Ok!');
+}</code></pre>
+    <p>Условие <span>if (…)</span> вычисляет выражение в скобках и преобразует результат к логическому типу <br>
+      Таким образом, код при таком условии никогда не выполнится:</p>
+    <pre><code>if (0) { // 0 is falsy
+        ...
+}</code></pre>
+    <p>…а при таком – выполнится всегда:</p>
+    <pre><code>if (1) { // 1 is truthy
+  ...
+}</code></pre>
+
+    <h3>Блок «else»</h3>
+    <p>Инструкция <span>if</span> может содержать необязательный блок «else» («иначе»). Он выполняется, когда условие
+      ложно. <br>
+      Например:</p>
+    <pre><code>const num = 50;
+if (num < 49) {
+    console.log('Error');
+} else if (num > 100) {
+    console.log('Много');
+} else {
+    console.log('Ok!');
+}</code></pre>
+    <p>В приведенном выше коде, JavaScript сначала проверит <span>num < 49</span> Если это неверно, он переходит к
+          следующему условию <span>num > 100</span>. <br>
+          Если оно тоже ложно, тогда сработает последний
+          <span>console.log('Ok!');</span> </p>
+
+    <h3>Условный оператор «?»</h3>
+    <P>Условный оператор <span>?</span>, его так же называют <span>«тернарный»</span>, так как этот оператор,
+      единственный в своём роде, имеет три аргумента. <br>
+      Позволяет нам условие ниже:</P>
+    <pre><code>let accessAllowed;
+let age = prompt('Сколько вам лет?', '');
+
+if (age > 18) {
+  accessAllowed = true;
+} else {
+  accessAllowed = false;
+}
+
+alert(accessAllowed);</code></pre>
+    <p>Записать более коротким способом:</p>
+    <pre><code>let accessAllowed = (age > 18) ? true : false;</code></pre>
+    <p>Сначала вычисляется <span>условие:</span> если оно истинно, тогда возвращается <span>значение1</span>, в
+      противном случае – <span>значение2</span>. <br>
+      Синтаксис:</p>
+    <pre><code>let result = условие ? значение1 : значение2;</code></pre>
+
+    <h3>Полезные ссылки</h3>
+    <ul>
+      <li><a href="https://developer.mozilla.org/ru/docs/Learn/JavaScript/Building_blocks/conditionals">Принятие решений
+          в вашем коде — условные конструкции
+        </a></li>
+      <li><a href="https://learn.javascript.ru/ifelse">Условное ветвление</a></li>
+      <li><a href="https://docs.google.com/document/d/1RDxwMg7pSI9QzhYU0sY59kyspI71r-3_hzJoSbHRk0I/edit">Задачи</a></li>
+      <li><a
+          href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Operator_Precedence">Приоритет
+          операторов</a></li>
+      <li><a
+          href="https://www.youtube.com/watch?v=ZgSx3yH7sJI&ab_channel=%D0%A2%D0%B8%D0%BC%D0%BE%D1%84%D0%B5%D0%B9%D0%A5%D0%B8%D1%80%D1%8C%D1%8F%D0%BD%D0%BE%D0%B2">Алгебра
+          логики</a>
+      </li>
+    </ul>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

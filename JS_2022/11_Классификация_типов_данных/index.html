@@ -14,14 +14,17 @@
   <a href="../../index.html">
     <div class="home">в начало</div>
   </a>
-  <!-- Тема -->
-  <h1>Классификация типов данных</h1>
+  <div class="container">
 
-  <img src="date.PNG" alt="">
 
-  <h3>Типы данных на примере кода</h3>
-  <!-- код -->
-  <pre><code>const number = 5;
+    <!-- Тема -->
+    <h1>Классификация типов данных</h1>
+
+    <img src="date.PNG" alt="">
+
+    <h3>Типы данных на примере кода</h3>
+    <!-- код -->
+    <pre><code>const number = 5;
 
 console.log(-4 / 0); //Infinity
 console.log('string' * 9); //NaN
@@ -30,29 +33,29 @@ console.log(number == 5); //true (boolen)
 let und;
 console.log(und); //undefined</code></pre>
 
-  <h3>Рассмотрим объекты и как к ним обращаться</h3>
-  <p>На примере объекта:</p>
-  <!-- код -->
-  <pre><code data-lang="javascript">const obj = {
+    <h3>Рассмотрим объекты и как к ним обращаться</h3>
+    <p>На примере объекта:</p>
+    <!-- код -->
+    <pre><code data-lang="javascript">const obj = {
 name: 'John',
 age: 25,
 isMarried: false
 };</code></pre>
-  <p>Обращение к элементу происходит через ".", либо через "[]"</p>
-  <!-- код -->
-  <pre><code>console.log(obj.name); //John
+    <p>Обращение к элементу происходит через ".", либо через "[]"</p>
+    <!-- код -->
+    <pre><code>console.log(obj.name); //John
 console.log(obj['name']); //John</code></pre>
 
-  <p>В объект можно добавить значение или переменную, с помощью "." или [].</p>
-  <!-- код -->
-  <pre><code>obj.weight = '60';
+    <p>В объект можно добавить значение или переменную, с помощью "." или [].</p>
+    <!-- код -->
+    <pre><code>obj.weight = '60';
 obj['height'] = 160;
       
 console.log(obj.weight); //60
 console.log(obj.height); //160</code></pre>
 
-  <p>Внутри объектов возможно создавать вложенные структуры, например:</p>
-  <pre><code>const object = {
+    <p>Внутри объектов возможно создавать вложенные структуры, например:</p>
+    <pre><code>const object = {
   name: 'John',
   age: 25,
   isMarried: false,
@@ -63,22 +66,22 @@ console.log(obj.height); //160</code></pre>
       }
   }
 };</code></pre>
-  <h3>Рассмотрим массивы и как к ним обращаться</h3>
-  <pre><code>let arr = ['plump.png', 'orange.jpg', 'apple.bmp'];
+    <h3>Рассмотрим массивы и как к ним обращаться</h3>
+    <pre><code>let arr = ['plump.png', 'orange.jpg', 'apple.bmp'];
 console.log(arr[1]); //orange.jpg</code></pre>
 
 
-  <h3>полезные ссылки</h3>
-  <ul>
-    <li><a
-        href="https://medium.com/@hydrock/bigint-%D0%BD%D0%BE%D0%B2%D1%8B%D0%B9-%D1%82%D0%B8%D0%BF-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85-%D0%B2-js-dd5c29446570">BigInt
-        — новый тип данных в JS</a>
-    </li>
-    <li><a href="https://learn.javascript.ru/symbol">Тип данных Symbol</a>
-    </li>
+    <h3>полезные ссылки</h3>
+    <ul>
+      <li><a
+          href="https://medium.com/@hydrock/bigint-%D0%BD%D0%BE%D0%B2%D1%8B%D0%B9-%D1%82%D0%B8%D0%BF-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85-%D0%B2-js-dd5c29446570">BigInt
+          — новый тип данных в JS</a>
+      </li>
+      <li><a href="https://learn.javascript.ru/symbol">Тип данных Symbol</a>
+      </li>
 
-  </ul>
-
+    </ul>
+  </div>
 
   <script src="script.js"></script>
 </body>
