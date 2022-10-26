@@ -48,10 +48,18 @@ a {
 }
 
 h2,
-h3 {
+h3,
+summary {
   color: blue;
   font-weight: 700;
+  font-size: 1.17em;
   margin-block: 0.83em;
+}
+
+summary {
+  background-color: rgba(231, 231, 231, 0.404);
+  padding-block: 0.2em;
+  cursor: pointer;
 }
 
 p {
@@ -61,7 +69,10 @@ p {
 li {
   padding-left: 10px;
   font-size: 16px;
-  /* list-style: none; */
+}
+
+li>pre {
+  font-size: 13px;
 }
 
 code {
