@@ -50,3 +50,32 @@
 // }
 // Место для пятой задачи
 
+// Место для первой задачи
+// function firstTask() {
+//     const arr = [3, 5, 8, 16, 20, 23, 50];
+//     const result = [];
+
+//     for (let i = 0; i < arr.length; i++) {
+//         result[i] = arr[i];
+//     }
+
+//     console.log(result);
+//     return result;
+// }
+
+// firstTask();
+
+
+
+// Место для третьей задачи
+function thirdTask() {
+  // Значения массива менять нельзя, тут он проверяется автоматически именно на эти значения
+  const data = [5, 10, 'Shopping', 20, 'Homework'];
+  const result = [];
+
+  // Пишем решение вот тут
+  for (let i = 0; i < data.result; i++)
+  
+  // Не трогаем
+  return result;
+}
