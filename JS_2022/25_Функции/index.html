@@ -24,6 +24,46 @@
 }
 showFirstMessage(); //Вызов функции</code></pre>
 
+  <p>Например функция ниже возьмет аргумент <span>'hello world!'</span> , подставит вместо аргумента <span>text</span> и передаст в тело функции</p>
+<pre><code>function showFirstMessage(text) {
+  console.log(text); 
+}
+showFirstMessage('Hello world!'); //Hello world!</code></pre>
+
+<p>Аргументов функции может быть бесконечное количество</p>
+<pre><code>function showFirstMessage(text, arg, num) {
+console.log(text); 
+console.log(arg); 
+console.log(num); 
+}
+showFirstMessage('Hello world!', '50', 'qwe');</code></pre>
+
+<h3>Return</h3>
+<p>Директива <span>return</span> может находиться в любом месте тела функции. <br>
+ Как только выполнение доходит до этого места, функция останавливается, и значение возвращается в вызвавший её код. </p>
+<p>Например, когда запустится функция <span>calc</span> она вернет сумму 1 и 2 аргумента</p>
+<pre><code>function calc(a, b) {
+  return (a + b);
+}
+console.log(calc(5, 10)); //15
+console.log(calc(10, 20)); //30</code></pre>
+
+<p><span>return</span> может так же может возвращать значение своей локальной переменной в глобальную область видимости</p>
+<pre><code>function ret() {
+  let num = 50;
+  return num;
+}
+const anotherNum = ret();
+console.log(anotherNum); //50</code></pre>
+
+<h3>Function declaration</h3>
+<p>Классическая запись функции, существует еще до того, как код запустится. <br>
+Мы можем вызвать функцию в любом месте не зависимо от того, где она была создана.</p>
+<pre><code>alert( sayHi ); 
+
+function sayHi() {
+  alert( "Привет" );
+}</code></pre>
 
 
     <h3>Полезные ссылки</h3>

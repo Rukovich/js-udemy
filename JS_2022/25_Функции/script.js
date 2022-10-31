@@ -47,12 +47,12 @@
 // console.log(calc(10, 20)); //30
 
 //return может так же может возвращать значение своей локальной переменной в глобальную область видимости
-function ret() {
-  let num = 50;
-  return num;
-}
-const anotherNum = ret();
-console.log(anotherNum); //50
+// function ret() {
+//   let num = 50;
+//   return num;
+// }
+// const anotherNum = ret();
+// console.log(anotherNum); //50
 
 /*
 Function declaration
@@ -81,3 +81,6 @@ const calc1 = (a, b) => {
   console.log('1');
   return a + b;
 };
+
+
+
