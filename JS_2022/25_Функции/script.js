@@ -81,3 +81,33 @@ const calc1 = (a, b) => {
   console.log('1');
   return a + b;
 };
+
+/*
+Еще раз про аргументы функции
+В этом примере показано почему не стоит жестко привязывать аргументы функции к переменным
+*/
+// const usdCurr = 28;
+// const eurCurr = 32;
+
+// function convert(amount, curr) {
+//   console.log(curr * amount);
+// }
+// convert(500, usdCurr);
+// convert(500, eurCurr);
+
+/*
+Про важность return
+*/
+
+const usdCurr = 28;
+const discount = 0.9;
+
+
+function convert(amount, curr) {
+ return curr * amount;
+}
+
+function promotion(result) {
+  console.log(result * discount);
+}
+convert(500, usdCurr);
