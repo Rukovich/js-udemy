@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../style.css">
+  <title>Callback-функции</title>
+</head>
+
+<body>
+  <a href="../../index.html">
+    <div class="home">в начало</div>
+  </a>
+
+  <div class="container">
+    <h1>Callback-функции</h1>
+
+    <p> <span>callback</span>- функция котора должна быть выполнена после того, как другая функция завершила свое
+      выполнение</p>
+
+    <p>Многие действия в JavaScript асинхронные. Для того, чтобы запускать функции в нужной последовательности можно
+      использовать Callback-функции</p>
+    <pre><code>function learnJS(lang, callback) {
+  console.log(`Я учу ${lang}`);
+  callback();
+}
+function done() {
+  console.log('Я прошел этот урок');
+}
+
+learnJS('JavaScript', done);</code></pre>
+    <p>Код выше сначала выведет: <br>
+      <span>Я учу JavaScript</span>,<br>
+      затем: <br>
+      <span>Я прошел этот урок</span>
+    </p>
+
+    <ul>
+      <li><a href="https://learn.javascript.ru/callbacks">Введение: колбэки</a></li>
+    </ul>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
