@@ -16,6 +16,89 @@
 
   <div class="container">
     <h1>объекты, деструктуризация объектов</h1>
+    <p>Представим объект:</p>
+    <pre><code>const options = {
+  name: 'test',
+  with: 1024,
+  height: 1024,
+  colors: {
+    borders: 'black',
+    bg: 'red'
+  }
+};
+
+console.log(options.name);</code></pre>
+
+    <h3>Удаляем свойство</h3>
+    <p>С помощью <span>delete</span> мы можем удалить свойство из объекта </p>
+    <pre><code>delete options.name;</code></pre>
+
+    <h3>for..in</h3>
+    <p>Чтобы перебрать все своства объекта можем воспользоваться конструкцией <span>for in</span>:</p>
+    <p>В цикле ниже мы перебираем каждое значение в объекте</p>
+    <pre><code>for (let key in options) {
+  console.log(`Свойство ${key} имеет значение ${options[key]}`);
+}
+В консоль выводится:
+// Свойство name имеет значение test
+// Свойство with имеет значение 1024
+// Свойство height имеет значение 1024
+
+// Свойство colors имеет значение [object Object]</code></pre>
+
+    <p>Как видно из поледнего значения в консоле, таким способом мы не сможем дотянуться до объекта вложенного в объект
+    </p>
+    <p>Для этого мы можем воспользоваться <span>for..in</span></p>
+    <pre><code>for (let key in options) {
+  if (typeof(options[key]) === 'object') {
+    for (let i in options[key]) {
+      console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
+    }
+  } else {
+    console.log(`Свойство ${key} имеет значение ${options[key]}`);
+  }
+}
+В консоль выводится:
+// Свойство name имеет значение test
+// Свойство with имеет значение 1024
+// Свойство height имеет значение 1024
+// Свойство border имеет значение black
+// Свойство bg имеет значение red</code></pre>
+
+
+    <h3>Реализуем счетчик свойст объекта с помощью for..in</h3>
+    <pre><code>const options = {
+  name: 'test',
+  with: 1024,
+  height: 1024,
+  colors: {
+    border: 'black',
+    bg: 'red'
+  }
+};
+
+let counter = 0;
+for (let key in options) {
+  if (typeof(options[key]) === 'object') {
+    for (let i in options[key]) {
+      console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
+      counter++; //счетчик
+    }
+  } else {
+    console.log(`Свойство ${key} имеет значение ${options[key]}`);
+    counter++; //счетчик
+  }
+}
+console.log(counter); //Получаем 5 свойств всего в объекте</pre></code>
+
+    <h3>Реализуем счетчик свойст объекта с помощью Object.keys()</h3>
+    <pre><code>console.log(Object.keys(options)); //[ 'name', 'with', 'height', 'colors' ]
+console.log(Object.keys(options).length); // 4</code></pre>
+
+    <h3>Деструктуризация</h3>
+    <p>С помощью кода ниже мы отделяем свойства ниже из объекта и прописываем их в константу</p>
+    <pre><code>const {border, bg} = options.colors;
+      console.log(border); //black</code></pre>
 
 
     <ul>
