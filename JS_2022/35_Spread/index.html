@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../style.css">
+  <title>Spread оператор</title>
+</head>
+
+<body>
+  <a href="../../index.html">
+    <div class="home">в начало</div>
+  </a>
+
+  <div class="container">
+    <h1>Передача по ссылке или по значению. Spread оператор</h1>
+    <p>Изменяя объекты, мы взаимодействием со ссылкой, по этому при изменении каких-либо значений объектов, мы меняем
+      значения у исходного объекта (ссылки) </p>
+    <h3>Создание поверхностной копии с помощью for..in</h3>
+    <pre><code>//Создаем функцию:
+function copy(mainObj) {
+  let objCopy = {};
+
+  let key;
+  for (key in mainObj) {
+    objCopy[key] = mainObj[key];
+  }
+
+  return objCopy;
+}
+
+// копируем объект:
+const numbers = {
+  a: 2,
+  b: 5,
+  c: {
+    x: 7,
+    y: 4
+  }
+};
+
+const newNumbers = copy(numbers); //Копируем объект с помощью функции 
+newNumbers.a = 10;
+
+console.log(newNumbers); //{ a: 10, b: 5, c: { x: 7, y: 4 } }
+console.log(numbers); //{ a: 2, b: 5, c: { x: 7, y: 4 } }</code></pre>
+
+    <p>Поверхностная называется потому, что не копирует вложенные конструкции, по этому если обратиться к <span>
+        'c'</span> мы поменяем значение в исходном объекте.</p>
+    <pre><code>newNumbers.c.x = 10;
+console.log(numbers); //{ a: 2, b: 5, c: { x: 10, y: 4 } }</code></pre>
+
+    <h3>Поверхностная копия с помощью метода Object.assign()</h3>
+    <p>используется для копирования значений всех собственных
+      перечисляемых свойств из одного или более исходных объектов в целевой объект. После копирования
+      он возвращает целевой объект.</p>
+    <pre><code>const add = {
+  d:17,
+  e:20
+};
+
+const clone = Object.assign({}, add);
+clone.d = 20;
+console.log(add); //{ d: 17, e: 20 }
+console.log(clone); //{ d: 20, e: 20 }</code></pre>
+
+    <h3>поверхностная копия в массивах с помощью метода slice ()</h3>
+    <pre><code>const oldArray = ['a', 'b', 'c'];
+const newArray = oldArray.slice();
+
+newArray[1] = 'asasa';
+console.log(newArray); //[ 'a', 'asasa', 'c' ]
+console.log(oldArray); //[ 'a', 'b', 'c' ]</code></pre>
+
+
+    <h3>Spread оператор</h3>
+    <p>Spread syntax позволяет расширить доступные для итерации элементы (например, массивы или строки) в местах</p>
+    <p>Например в коде ниже с помощью spread оператора '...' мы склеиваем 3 массива</p>
+    <pre><code>const video = ['youtube', 'vimeo', 'rutube'];
+const blogs = ['wordpress', 'livejournal', 'blogger'];
+const internet = [...video, ...blogs, 'vk', 'facebook'];
+console.log(internet); //['youtube','vimeo','rutube','wordpress','livejournal','blogger','vk','facebook']</code></pre>
+
+    <h3>поверхностная копия массива с помощью spread оператора</h3>
+    <pre><code>const array = ['a', 'b'];
+const newArray = [...array];
+console.log(newArray); //[ 'a', 'b' ]
+</code></pre>
+
+    <h3>поверхностная копия объекта с помощью spread оператора</h3>
+
+    <pre><code>const q = {
+  one: 1,
+  two: 2
+};
+
+const newObj = {...q};</code></pre>
+
+    <h3>Полезные ссылки:</h3>
+    <ul>
+      <li><a href="#"></a></li>
+    </ul>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
