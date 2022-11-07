@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../style.css">
+  <title>Задачки на массивы и объекты</title>
+</head>
+
+<body>
+  <a href="../../index.html">
+    <div class="home">в начало</div>
+  </a>
+
+  <div class="container">
+    <h1>Задачки на массивы и объекты</h1>
+    <h3>Задачи на работу с объектами</h3>
+    <ol>
+      <li>Напишите функцию <span>showExperience</span>, которая будет принимать в себя объект со всеми данными и
+        возвращать строку с
+        опытом. <br>
+        Пример: <br>
+        <span>showExperience(personalPlanPeter) => '1 month'</span> <br>
+        P.S. желательно использовать деструктуризацию, но не обязательно
+      </li>
+      <li>Напишите функцию <span>showProgrammingLangs</span>, которая будет принимать в себя объект со всеми данными и
+        возвращать
+        строку в нужном виде. <br>
+        Пример: <br>
+        <span>showProgrammingLangs(personalPlanPeter) =>
+          "Язык js изучен на 20% Язык php изучен на 10%" </span> <br>
+        Причем функция должна работать вне зависимости от количества языков. Если ни один не указан, то возвращается
+        пустая строка. <br>
+        P.S. Для переноса строки используется \n в конце строки.
+      </li>
+      <li>Создайте метод <span>showAgeAndLangs</span> внутри объекта personalPlanPeter. При его вызове метод будет
+        принимать в себя
+        объект и возвращать строку в нужном виде. <br>
+        Пример: <br>
+        <span>personalPlanPeter.showAgeAndLangs(personalPlanPeter)
+          => 'Мне 29 и я владею языками: RU ENG'</span>
+      </li>
+    </ol>
+    <pre><code>const personalPlanPeter = {
+  name: "Peter",
+  age: "29",
+  skills: {
+      languages: ['ru', 'eng'],
+      programmingLangs: {
+          js: '20%',
+          php: '10%'
+      },
+      exp: '1 month'
+  }
+};</code></pre>
+
+    <details>
+      <summary>Решение</summary>
+      <pre><code>const personalPlanPeter = {
+  name: "Peter",
+  age: "29",
+  skills: {
+      languages: ['ru', 'eng'],
+      programmingLangs: {
+          js: '20%',
+          php: '10%'
+      },
+      exp: '1 month'
+  },
+  showAgeAndLangs: function(plan) {
+      const {age} = plan;
+      const {languages} = plan.skills;
+      let str = `Мне ${age} и я владею языками: `;
+
+      languages.forEach(function(lang) {
+          str += `${lang.toUpperCase()} `;
+      });
+
+      return str;
+  }
+};
+
+personalPlanPeter.showAgeAndLangs(personalPlanPeter);
+
+function showExperience(plan) {
+  const {exp} = plan.skills;
+  return exp;
+}
+
+showExperience(personalPlanPeter);
+
+function showProgrammingLangs(plan) {
+  let str = '';
+  const {programmingLangs} = plan.skills;
+  for (let key in programmingLangs) {
+      str += `Язык ${key} изучен на ${programmingLangs[key]}\n`
+  }
+
+  return str;
+}
+
+showProgrammingLangs(personalPlanPeter);</code></pre>
+    </details>
+
+    <h3>Задачи на работу с массивами</h3>
+    <ol>
+      <li>Напишите функцию <span>showFamily</span>, которая будет принимать в себя массив строк и возвращать сообщение в
+        нужном
+        формате. <br>
+        <span>showFamily(family) => 'Семья состоит из: Peter Ann Alex Linda'</span>
+        Имена подставляются автоматически из массива. Если массив пустой, то выводится сообщение 'Семья пуста'
+      </li>
+      <li>напишите функцию <span>standardizeStrings</span>, которая будет принимать в себя массив строк и будет выводить
+        в консоль
+        эти строки в нижнем регистре. <br>
+
+        Пример: <br>
+        <span>standardizeStrings(favoriteCities)</span>
+        выведет в консоль: <br>
+        <pre><code>lisbon
+rome
+milan
+dublin</code></pre>
+        Это частая задача в реальности, так как от пользователя нам могут прийти ответы в самых разных форматах. В том
+        числе и с разными буквами :) Поэтому нам нужно привести строки в один формат для правильной работы.
+      </li>
+      <li></li>
+    </ol>
+    <pre><code>const family = ['Peter', 'Ann', 'Alex', 'Linda'];</code></pre>
+    <details>
+      <summary>Решение</summary>
+      <pre><code>const family = ['Peter', 'Ann', 'Alex', 'Linda'];
+function showFamily(arr) {
+    let str = '';
+
+    arr.length === 0 ? str = 'Семья пуста' : str = 'Семья состоит из: ';
+
+    arr.forEach(member => {
+        str += `${member} `
+    });
+
+    return str;
+}
+
+showFamily(family);
+
+const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
+
+function standardizeStrings(arr) {
+    arr.forEach(city => {
+        console.log(city.toLowerCase())
+    })
+}
+
+standardizeStrings(favoriteCities);</code></pre>
+    </details>
+
+    <h3>Задачи на работу с массивами, часть 2</h3>
+    <ol>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ol>
+
+    <h3>Полезные ссылки:</h3>
+    <ul>
+      <li><a href="#"></a></li>
+    </ul>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
