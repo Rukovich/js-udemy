@@ -17,9 +17,27 @@
   <div class="container">
     <h1>Основы ООП. прототипно-ориентированное наследование</h1>
 
+<pre><code>const solider = {
+  health: 400,
+  armor: 100
+};
+
+const john = {
+  health: 100
+};
+
+john.__proto__ = solider; //Устаревший способ 
+console.log(john.armor);
+
+Object.setPrototypeOf(john, solider); //Использующийся способ. придали объекту прототип
+
+//Создаем объект john, который прототипо наследуется от solider
+const john = object.create(solider)</code></pre>
+
     <h3>Полезные ссылки:</h3>
     <ul>
-      <li><a href="#"></a></li>
+      <li><a href="#">Про __proto__</a></li>
+      <li><a href="#">Наследование без __proto__</a></li>
     </ul>
   </div>
   <script src="script.js"></script>
