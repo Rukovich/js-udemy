@@ -16,19 +16,19 @@
 
 'use strict';
 
-let numberOfFilms;
-      
+
 const personalMovieDB = {
-    count: numberOfFilms,
+    count: 0,
     movies: {},
     actors: {},
     genres: [],
     privat: false,
-    start: function() {
-        numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
 
-        while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
-            numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+    start: function() {
+      personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
+
+        while (personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
+          personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
         }
     },
     writeYourGenres: function() {
@@ -64,8 +64,15 @@ const personalMovieDB = {
     },
     showMyDB: function(hidden) {
         if (!hidden) {
-            console.log(personalMovieDB)
+            console.log(personalMovieDB);
         } 
+    },
+    toggleVisibleMyDB: function() {
+      if (personalMovieDB.privat) {
+        personalMovieDB.privat = false;
+      } else {
+        personalMovieDB.privat = true;
+      }
     }
 
 };
@@ -74,7 +81,7 @@ personalMovieDB.writeYourGenres();
 personalMovieDB.start();
 personalMovieDB.rememberMyFilms();
 personalMovieDB.detectPersonalLevel();
-personalMovieDB.showMyDB(personalMovieDB.privat)
+personalMovieDB.showMyDB(personalMovieDB.privat);
 
 
 // 2) Создать метод toggleVisibleMyDB, который при вызове будет проверять свойство privat. Если оно false - он
