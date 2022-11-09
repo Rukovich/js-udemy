@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../style.css">
+  <title>#</title>
+</head>
+
+<body>
+  <a href="../../index.html">
+    <div class="home">в начало</div>
+  </a>
+
+  <div class="container">
+    <img src="classification.jpg" alt="classification">
+    <h1>Динамическая типизация</h1>
+
+    <p>Динамическая типизация- возможность одного типа данных превращаться в другой</p>
+
+    <h3>Преобразовываем в строку: to String</h3>
+    <p>1 Способ: typeof</p>
+  <pre><code>console.log(typeof(String(null))); //string
+console.log(typeof(String(4))); //string</code></pre>
+
+<p>2 Способ: конкатинация</p>
+<pre><code>console.log(typeof(5 + '')); //string</code></pre>
+
+<p>Пример:</p>
+<pre><code>const num = 5;
+console.log('https://vk.com/catalog/' + num);</code></pre>
+
+<h3>Преобразовываем в число: to mumber</h3>
+<p>1 Способ: typeof</p>
+<pre><code>console.log(typeof(Number('4'))); //number</code></pre>
+
+<p>1 Способ: унарный +</p>
+<pre><code>console.log(typeof(+'5')); //number</code></pre>
+
+<p>3 Способ: parseInt</p>
+<pre><code>console.log(typeof(parseInt('15px', 10))) //number</code></pre>
+
+<h3>Преобразовываем в булиновое значение: to boolean</h3>
+<p>Что является false: <span>0, '', null, undefined, NaN</span>;</p>
+<p>все остальное - true</p>
+
+<p>1 Способ:</p>
+<pre><code>let switcher = null;
+if (switcher) {
+    console.log('working...'); // не работает
+}
+
+switcher = 1;
+if (switcher) {
+    console.log('working...'); // работает
+}</code></pre>
+
+<p>2 Способ:</p>
+<pre><code>console.log(typeof(Boolean('4'))); //Boolean</code></pre>
+
+<p>3 Способ:</p>
+<pre><code>console.log(typeof(!!'444')); //Boolean</code></pre>
+
+    <h3>Полезные ссылки:</h3>
+    <ul>
+      <li><a href="#"></a></li>
+    </ul>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
