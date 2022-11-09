@@ -16,7 +16,7 @@
 
 'use strict';
 
-
+/*
 const personalMovieDB = {
     count: 0,
     movies: {},
@@ -32,10 +32,21 @@ const personalMovieDB = {
         }
     },
     writeYourGenres: function() {
-        for (let i = 1; i <= 3; i++) {
-            const a = prompt(`Ваш любимый жанр под номером ${i}`, '');
-            personalMovieDB.genres[i - 1] = a;
+        for (let i = 1; i < 2; i++) {
+            let genres = prompt(`Введите ваши любимые жанры через запятую`).toLocaleLowerCase();
+
+            if (genres == '' || genres == null) {
+              console.log('Вы ввели некорректные данные или не ввели их вообще');
+              i--;
+            } else {
+              personalMovieDB.genres = genres.split(', ');
+              personalMovieDB.genres.sort();
+            }
         }
+
+        personalMovieDB.genres.forEach ((item, i) => {
+          console.log(`Любимый жанр ${i + 1} - это ${item}`)
+        })
     },
     rememberMyFilms: function() {
         for (let i = 0; i < 2; i++) {
@@ -82,7 +93,10 @@ personalMovieDB.start();
 personalMovieDB.rememberMyFilms();
 personalMovieDB.detectPersonalLevel();
 personalMovieDB.showMyDB(personalMovieDB.privat);
-
-
-// 2) Создать метод toggleVisibleMyDB, который при вызове будет проверять свойство privat. Если оно false - он
-// переключает его в true, если true - переключает в false. Протестировать вместе с showMyDB.
+*/
+/*
+3) В методе writeYourGenres запретить пользователю нажать кнопку "отмена" или оставлять пустую строку. 
+Если он это сделал - возвращать его к этому же вопросу. После того, как все жанры введены - 
+при помощи метода forEach вывести в консоль сообщения в таком виде:
+"Любимый жанр #(номер по порядку, начиная с 1) - это (название из массива)"
+*/
