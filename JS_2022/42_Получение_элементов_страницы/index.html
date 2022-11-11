@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../style.css">
+  <title>Получение элементов со страницы</title>
+</head>
+
+<body>
+  <a href="../../index.html">
+    <div class="home">в начало</div>
+  </a>
+
+  <div class="container">
+    <h1>Введение в DOM. Получение элементов со страницы</h1>
+    <h3>Рассмотрим методы получения элементов со страницы</h3>
+
+    <h3>getElementById</h3>
+    <p>Находим элемент по id</p>
+    <pre><code>const box = document.getElementById('box');</code></pre>
+
+
+    <h3>getElementsByTagName</h3>
+    <p>Получаем массив элементов по тегу</p>
+    <pre><code>const btns = document.getElementsByTagName('button');</code></pre>
+
+    <p>Получаем конкретный элемент массива по тегу</p>
+    <pre><code>const btns = document.getElementsByTagName('button');
+console.log(btns[1]);</code></pre>
+
+
+<h3>getElementsByClassName</h3>
+<p>Находим элемент по классу</p>
+<pre><code>const circles = document.getElementsByClassName('circle');</code></pre>
+
+
+<h3>querySelectorAll</h3>
+<p>Универсальный метод, ищет коллекцию по классам, тегам и тд</p>
+<pre><code>const hearts = document.querySelectorAll('.heart');
+console.log(hearts);</code></pre>
+<p>данный метод имеет метод <span>forEach</span></p>
+<pre><code>hearts.forEach(item => {
+  console.log(item); //Выводит поочередно все элементы с классом в консоль
+});</code></pre>
+
+
+<h3>querySelector</h3>
+<p>Ищет первый элемент</p>
+<pre><code>const hearts = document.querySelector('.heart');
+console.log(hearts);</code></pre>
+
+
+
+    <h3>Полезные ссылки:</h3>
+    <ul>
+      <li><a href="https://learn.javascript.ru/css-selectors">Знаете ли вы селекторы?</a></li>
+      <li><a href="https://habr.com/ru/post/336136/">Немного о псевдомассивах</a></li>
+      <li><a href="https://drive.google.com/file/d/1sxbFDM645vAVnBhUuSgGKXadJTKuIn28/view">Исходники</a></li>
+    </ul>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
