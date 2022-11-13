@@ -16,43 +16,43 @@
 
   <div class="container">
     <h1>Действия с элементами на странице</h1>
-<pre><code>const box = document.getElementById('box');
+    <pre><code>const box = document.getElementById('box');
 const btns = document.getElementsByTagName('button');
 const circles = document.getElementsByClassName('circle');
 const hearts = document.querySelectorAll('.heart');
 const oneHeart = document.querySelector('.heart');</code></pre>
 
-<h3>Изменяем стили у элемента</h3>
-<pre><code>box.style.backgroundColor = 'blue';
+    <h3>Изменяем стили у элемента</h3>
+    <pre><code>box.style.backgroundColor = 'blue';
 box.style.width = '500px';
 
 btns[1].style.borderRadius = '100%';</code></pre>
 
-<p>Изменяем стиль элемента текстом</p>
+    <p>Изменяем стиль элемента текстом</p>
 
-<pre><code>box.style.cssText = 'background-color: blue; width: 500px'
+    <pre><code>box.style.cssText = 'background-color: blue; width: 500px'
 //или так:
 const color = 'blue';
 const size = '500px'
 box.style.cssText = `background-color: ${color}; width: ${size}`;</code></pre>
 
-<p>С помощью цикла <span>forEach</span> изменяем цвета у элементов</p>
-<pre><code>hearts.forEach(item => {
+    <p>С помощью цикла <span>forEach</span> изменяем цвета у элементов</p>
+    <pre><code>hearts.forEach(item => {
   item.style.backgroundColor = blue;
 });</code></pre>
 
-<h3>Создаем элементы с помощью JS</h3>
-<p><span></span></p>
-<pre><code></code></pre>
+    <h3>Создаем элементы с помощью JS</h3>
+    <p><span></span></p>
+    <pre><code></code></pre>
 
-<p><span>createElement</span> - метод создает элемент</p>
-<pre><code>const div = document.createElement('div')</code></pre>
+    <p><span>createElement</span> - метод создает элемент</p>
+    <pre><code>const div = document.createElement('div')</code></pre>
 
-<p><span>createTextNode</span>- Добавляет текст</p>
-<pre><code>const text = document.createTextNode('Тут был я');</code></pre>
+    <p><span>createTextNode</span>- Добавляет текст</p>
+    <pre><code>const text = document.createTextNode('Тут был я');</code></pre>
 
-<p>Создаем и добавляем элемент на страницу под тегом body с помощью метода <span>append</span></p>
-<pre><code>div.classList.add('black');
+    <p>Создаем и добавляем элемент на страницу под тегом body с помощью метода <span>append</span></p>
+    <pre><code>div.classList.add('black');
 document.body.append(div);
 
 //Помещаем элемент div в обертку wrapper
@@ -61,21 +61,21 @@ document.querySelector('.wrapper').append(dev);
 //метод prepend помещает элемент в начало родителя
 document.querySelector('.wrapper').prepend(dev);</code></pre>
 
-<p>методы <span>before</span> и <span>after</span> делают то же самое</p>
+    <p>методы <span>before</span> и <span>after</span> делают то же самое</p>
 
-<p><span>remove()</span>удаляет элементы со страницы</p>
-<pre><code>circles[0].remove();</code></pre>
+    <p><span>remove()</span>удаляет элементы со страницы</p>
+    <pre><code>circles[0].remove();</code></pre>
 
-<p><span>replaceWith()</span>Заменяет один элемент на другой</p>
-<pre><code>hearts[0].replaceWith(circles[0]);</code></pre>
+    <p><span>replaceWith()</span>Заменяет один элемент на другой</p>
+    <pre><code>hearts[0].replaceWith(circles[0]);</code></pre>
 
-<h3>Методы для длбавления элементов на страницу</h3>
+    <h3>Методы для добавления элементов на страницу</h3>
 
-<p><span>innerHTML</span></p>
-<pre><code>div.innerHTML = '<h1> hello World </h1>'</code></pre>
+    <p><span>innerHTML</span></p>
+    <pre><h1>div.innerHTML = '<-h1->hello World</-h1>'</code></pre>
 
-<p><span>textContent</span></p>
-<pre><code>div.textContent = 'hello World' //Работает только с текстом</code></pre>
+    <p><span>textContent</span></p>
+    <pre><code>div.textContent = 'hello World' //Работает только с текстом</code></pre>
 
 
     <h3>Полезные ссылки:</h3>
