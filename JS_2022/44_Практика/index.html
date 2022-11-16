@@ -13,65 +13,64 @@
   <a href="../../index.html">
     <div class="home">в начало</div>
   </a>
-
-  <h3>Задание:</h3>
-  <Ol>
-    <li>Изменить жанр фильма, поменять "комедия" на "драма"</li>
-    <li>Изменить задний фон постера с фильмом на изображение "bg.jpg". Оно лежит в папке img.
-      Реализовать только при помощи JS</li>
-    <li>Список фильмов на странице сформировать на основании данных из этого JS файла.
-      Отсортировать их по алфавиту </li>
-    <li>Добавить нумерацию выведенных фильмов</li>
-  </Ol>
-  <pre><code>'use strict';
-
-const movieDB = {
-    movies: [
-        "Логан",
-        "Лига справедливости",
-        "Ла-ла лэнд",
-        "Одержимость",
-        "Скотт Пилигрим против..."
-    ]
-};</code></pre>
-
-  <details>
-    <summary>Решение:</summary>
-
-    <pre><code>const adv = document.querySelectorAll('.promo__adv img');
-const genre = document.querySelector('.promo__genre');
-const bg = document.querySelector('.promo__bg');
-const movieList = document.querySelector ('.promo__interactive-list');
-
-// 1) Удалить все рекламные блоки со страницы (правая часть сайта)
-adv.forEach(element => {
-    element.remove();
-});
-
-// 2) Изменить жанр фильма, поменять "комедия" на "драма"
-genre.textContent ='Драмма';
-
-
-
-// 3) Изменить задний фон постера с фильмом на изображение "bg.jpg". Оно лежит в папке img.
-// Реализовать только при помощи JS
-bg.style.background = "url(img/bg.jpg) center center/cover no-repeat"
-
-
-// 4) Список фильмов на странице сформировать на основании данных из этого JS файла.
-// Отсортировать их по алфавиту 
-movieList.innerHTML = ' ';
-movieDB.movies.sort();
-movieDB.movies.forEach((Element, i) => {
-    movieList.innerHTML += 
-    `<li class="promo__interactive-item">${i+1} ${Element}
-        <div class="delete"> </div>
-    </li>`
-})</code></pre>
-</details>
-
   <div class="container">
     <h1>Практика. Отработка действий на странице</h1>
+
+    <h3>Задание:</h3>
+    <Ol>
+      <li>Изменить жанр фильма, поменять "комедия" на "драма"</li>
+      <li>Изменить задний фон постера с фильмом на изображение "bg.jpg". Оно лежит в папке img.
+        Реализовать только при помощи JS</li>
+      <li>Список фильмов на странице сформировать на основании данных из этого JS файла.
+        Отсортировать их по алфавиту </li>
+      <li>Добавить нумерацию выведенных фильмов</li>
+    </Ol>
+    <pre><code>'use strict';
+  
+  const movieDB = {
+      movies: [
+          "Логан",
+          "Лига справедливости",
+          "Ла-ла лэнд",
+          "Одержимость",
+          "Скотт Пилигрим против..."
+      ]
+  };</code></pre>
+  
+    <details>
+      <summary>Решение:</summary>
+  
+      <pre><code>const adv = document.querySelectorAll('.promo__adv img');
+  const genre = document.querySelector('.promo__genre');
+  const bg = document.querySelector('.promo__bg');
+  const movieList = document.querySelector ('.promo__interactive-list');
+  
+  // 1) Удалить все рекламные блоки со страницы (правая часть сайта)
+  adv.forEach(element => {
+      element.remove();
+  });
+  
+  // 2) Изменить жанр фильма, поменять "комедия" на "драма"
+  genre.textContent ='Драмма';
+  
+  
+  
+  // 3) Изменить задний фон постера с фильмом на изображение "bg.jpg". Оно лежит в папке img.
+  // Реализовать только при помощи JS
+  bg.style.background = "url(img/bg.jpg) center center/cover no-repeat"
+  
+  
+  // 4) Список фильмов на странице сформировать на основании данных из этого JS файла.
+  // Отсортировать их по алфавиту 
+  movieList.innerHTML = ' ';
+  movieDB.movies.sort();
+  movieDB.movies.forEach((Element, i) => {
+      movieList.innerHTML += 
+      `<li class="promo__interactive-item">${i+1} ${Element}
+          <div class="delete"> </div>
+      </li>`
+  })</code></pre>
+  </details>
 
     <h3>Полезные ссылки:</h3>
     <ul>
