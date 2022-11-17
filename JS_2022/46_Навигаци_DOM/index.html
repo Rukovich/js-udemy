@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../style.css">
+  <title>Навигация по DOM, data- аттрибуты, преймущество for/of</title>
+</head>
+
+<body>
+  <a href="../../index.html">
+    <div class="home">в начало</div>
+  </a>
+  <div class="container">
+    <h1>Навигация по DOM, data- аттрибуты, преймущество for/of</h1>
+
+    <h3>Навигация по DOM</h3>
+
+    <p><span>childNodes</span>- Узлы которые являются детьми у body</p>
+    <pre><code>console.log(document.body.childNodes); //Nodelist(4) [text, div.wrapper, text, script]</code></pre>
+
+    <p><span>firstChild</span> и <span>lastChild</span> <br>
+      первый и последний ребенок внутри родителя</p>
+<pre><code>console.log(document.body.firstChild);
+  console.log(document.body.lastChild)</code></pre>
+
+  <p><span>firstElement</span> и <span>lastElement</span> <br>
+первый и последний элемент внутри родителя</p>
+<pre><code>console.log(document.body.firstElementChild);
+console.log(document.body.lastElementChild)</code></pre>
+
+<p>Обращаемся к элементу через ID</p>
+<pre><code>console.log(document.querySelector('#current'));</code></pre>
+
+<p>Обращаемся к соседнему элементу</p>
+<pre><code>console.log(document.querySelector('#current').parentNode);</code></pre>
+
+<h3>data - аттрибуты </h3>
+<p>Получаем data - аттрибуты со страницы</p>
+<pre><code>console.log(document.querySelector('[data-current="3"]'));</code></pre>
+
+<p>получаем следующий за ним элемент с помощью свойства <span>nextElementSibling</span> </p>
+<pre><code>console.log(document.querySelector('[data-current="3"]').nextElementSibling);</code></pre>
+
+<p>получаем предыдущий элемент с помощью свойства <span>previosSibling</span></p>
+<pre><code>console.log(document.querySelector('[data-current="3"]').previosElementSibling);</code></pre>
+    
+
+<h3>Перебираем for of</h3>
+<p>В примере ниже for of перебирает всех детей внутри body и оставляет только элементы</p>
+<pre><code>for (let node of document.body.childNodes) {
+    if (node.nodeName == 'text') {
+        continue;
+    }
+
+    console.log(node);
+}</code></pre>
+
+    <h3>Полезные ссылки:</h3>
+    <ul>
+      <li><a href="https://developer.mozilla.org/ru/docs/Learn/HTML/Howto/Use_data_attributes">Про data- аттрибуты</a></li>
+      <li><a href="">#</a></li>
+    </ul>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
