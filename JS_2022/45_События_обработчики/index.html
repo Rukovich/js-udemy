@@ -16,6 +16,36 @@
 
   <div class="container">
     <h1>События и их обработчики</h1>
+<h3>addEventListener()</h3>
+<p>Это обработчик событий, добавим его на страницу</p>
+
+<pre><code>const btn = document.querySelector('button');
+
+btn.addEventListener('click', () => {
+    console.log('click')
+})</code></pre>
+
+<h3>target</h3>
+<p>Элемент на котором произошло событие</p>
+<p>Удаляем элемент с помощью <span>event.target</span></p>
+<pre><code>const btn = document.querySelector('button');
+
+btn.addEventListener('click', (event) => {
+    event.target.remove();
+})</code></pre>
+
+<p>Вызываем функцию по клику и удаляем элемент</p>
+<pre><code>const deleteEl = (el) => {
+  el.target.remove();
+}
+btn.addEventListener('click', deleteEl);</code></pre>
+
+<p>Назначаем обработчик событий на все элементы btns</p>
+<pre><code>const btns = document.querySelectorAll('button');
+btns.forEach( btn => {
+    btn.addEventListener('click', deleteEl);
+})</code></pre>
+
 
     <h3>Полезные ссылки:</h3>
     <ul>
