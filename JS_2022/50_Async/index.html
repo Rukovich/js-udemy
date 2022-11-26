@@ -19,7 +19,7 @@
 
     <h3>Async</h3>
     <p>в конструкции ниже:</p>
-    <pre><code><script defer src="js/script.js"></script></code></pre>
+    <pre><code><!-- <script defer src="js/script.js"></script>  --></code></pre>
     <p>Можно поместить в тег <span>head</span>, <span>defer</span> позволяет скрипту запускаться в фоновом режиме
       и вызывать его тогда, когда скрипт понадобится</p>
     <p>Особенности:</p>
@@ -30,7 +30,9 @@
 
     <h3>async</h3>
     <p>дан вконструкции ниже:</p>
-    <pre><code><script async src="js/script.js"></script></code></pre>
+    <pre><code>
+      <!-- <script async src="js/script.js"></script> -->
+    </code></pre>
     <p>Особенности:</p>
     <ul>
       <li>Страница не ждет асинхронных скриптов, страница просто обрабатывается и отображается</li>
