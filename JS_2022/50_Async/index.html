@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../style.css">
+  <title>Async, defer, Динамические скрипты</title>
+</head>
+
+<body>
+  <a href="../../index.html">
+    <div class="home">в начало</div>
+  </a>
+
+  <div class="container">
+    <h1>Async, defer, Динамические скрипты</h1>
+
+    <h3>Async</h3>
+    <p>в конструкции ниже:</p>
+    <pre><code><script defer src="js/script.js"></script></code></pre>
+    <p>Можно поместить в тег <span>head</span>, <span>defer</span> позволяет скрипту запускаться в фоновом режиме
+      и вызывать его тогда, когда скрипт понадобится</p>
+    <p>Особенности:</p>
+    <ul>
+      <li>Они никогда не блокируют страницу</li>
+      <li>Всегда дожидаются загрузки верстки</li>
+    </ul>
+
+    <h3>async</h3>
+    <p>дан вконструкции ниже:</p>
+    <pre><code><script async src="js/script.js"></script></code></pre>
+    <p>Особенности:</p>
+    <ul>
+      <li>Страница не ждет асинхронных скриптов, страница просто обрабатывается и отображается</li>
+      <li>события DOM и асинхронные скрипты не ждут друг друга</li>
+    </ul>
+    <p>Простыми словами скрипт запускается в фоновом режиме и запускается тогда когда был загружен,
+      не дожидаясь остальных скриптов</p>
+    <p><span>Вывод:</span> Когда используем скрипты с атрибутом async
+      мы должны быть точно уверены, что этот скрипт не зависит от DOM структуры и других скриптов</p>
+
+    <h3>Добавляем скрипт на страницу напряму через script.js:</h3>
+    <p>Чтобы добавить скрипт на страницу напрямую можно воспользоваться следующей конструкцией:</p>
+
+    <pre><code>function loadScript(src) {
+  const script = document.createElement('script');
+  script.src = src;
+  script.async = false;
+  document.body.append(script);
+}
+
+loadScript('js/test.js');
+loadScript('js/some.js');</code></pre>
+
+    <h3>Полезные ссылки:</h3>
+    <ul>
+      <li><a href="">#/<a></li>
+      <li><a href="">#</a></li>
+    </ul>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
