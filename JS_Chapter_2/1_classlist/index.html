@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../style.css">
+  <title>Classlist и делегирование событий</title>
+</head>
+
+<body>
+  <a href="../../index.html">
+    <div class="home">в начало</div>
+  </a>
+
+  <div class="container">
+    <h1>Classlist и делегирование событий</h1>
+    <a href="project/index.html">Проект урока</a>
+    <h3>Пробежимся по методам:</h3>
+    <h3>Методы classList:</h3>
+    <pre><code>console.log(btns[0].classList.item(0)); //находит элемент по списку
+console.log(btns[1].classList.add('red', 'kakoitoClass')); //добавляет класс
+console.log(btns[0].classList.remove('blue')); //Удаляет класс blue
+console.log(btns[0].classList.toggle('blue')); //Переключатель. Удаляет / добавляет 
+
+//contains- проверяет наличие класса на определенном элемеенте и возвращает булиновое значение
+if (btns[1].classList.contains('red')) {
+console.log('red');
+}</code></pre>
+
+
+
+    <h3>Делегирование событий на практике:</h3>
+    <p>Пример в проекте, ниже только код</p>
+    <pre><code>wrapper.addEventListener('click', (event) =>  {
+  if (event.target && event.target.tagName == "BUTTON") {
+    console.log('hello');
+  }
+});
+const btn = document.createElement('button');
+btn.classList.add('red');
+wrapper.append(btn);</code></pre>
+
+    <h3>Полезные ссылки:</h3>
+    <ul>
+      <li><a href="https://learn.javascript.ru/event-delegation">Делегирование событий 1</a></li>
+      <li><a
+          href="https://medium.com/@stasonmars/%D0%B4%D0%B5%D0%BB%D0%B5%D0%B3%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D0%B8%CC%86-%D0%B2-javascript-d91cbdd8916a">Делегирование
+          событий 2</a>
+      </li>
+      <li><a href="https://developer.mozilla.org/ru/docs/Web/API/Element/matches">Element.matches()</a></li>
+      <li><a href="https://developer.mozilla.org/ru/docs/Web/API/Element/classList">Element.classList</a></li>
+    </ul>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
