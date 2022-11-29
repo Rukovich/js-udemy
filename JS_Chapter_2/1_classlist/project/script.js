@@ -13,7 +13,7 @@ const wrapper = document.querySelector('.btn-block');
 // console.log(btns[0].classList.remove('blue')); //Удаляет класс blue
 // console.log(btns[0].classList.toggle('blue')); //Переключатель. Удаляет / добавляет 
 
-//contains- проверяет наличие класса на определенном элемеенте и возвращает булиновое значение
+// contains- проверяет наличие класса на определенном элемеенте и возвращает булиновое значение
 // if (btns[1].classList.contains('red')) {
 //   console.log('red');
 // }
