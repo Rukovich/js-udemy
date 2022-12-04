@@ -18,10 +18,74 @@
     <h1>Скрипты и время их выполнения. setTimeout и setInterval</h1>
     <a href="project/index.html">Проект урока</a>
 
+    <h3>setTimeout()</h3>
+    <p>позволяет вызвать функцию один раз через определённый интервал времени</p>
+    <p>Функция ниже срабатывает 1 раз через 1 секунду после нажатия на кнопку</p>
+    <pre><code>const btn = document.querySelector('.btn');
+  let timerId;
+  
+  btn.addEventListener('click', () => {
+  timerId = setTimeout(logger, 1000);
+});
+    
+    function logger() {
+      console.log('текст');
+    }</code></pre>
+
+    <h3>setInterval()</h3>
+    <p>позволяет вызывать функцию регулярно, повторяя вызов через определённый интервал времени</p>
+    <p>Функция повторяется 4 раза с равным интервалом</p>
+    <pre><code>const btn = document.querySelector('.btn');
+let timerId;
+let i = 0;
+
+btn.addEventListener('click', () => {
+  timerId = setInterval(logger, 500);
+});
+
+function logger() {
+  if (i === 3) {  //Очищает интервал и останавливает цикл
+    clearInterval(timerId);
+  }
+  console.log('текст');
+  i++;
+}</code></pre>
+
+    <h3>Рекурсивный setTimeout</h3>
+    <p>То же что <span>setInterval</span>, но следущее повторение начинается только после окончания предыдущего</p>
+    <pre><code>let id = setTimeout(function log() {
+  console.log('HEllO');
+  id = setTimeout(log, 500);
+}, 500);</code></pre>
+
+
+    <h3>Применяем setTimeout для анимации</h3>
+    <a href="project/index.html">Пример в проекте</a>
+    <pre><code>const btn = document.querySelector('.btn');
+let timerId;
+
+btn.addEventListener('click', myAnimation);
+
+function myAnimation() {
+  const elem = document.querySelector('.box');
+  let pos = 0;
+
+  const id = setInterval(frame, 10);
+  function frame() {
+    if (pos == 300) {
+      clearInterval(id);
+    } else {
+      pos++;
+      elem.style.top = pos + "px";
+      elem.style.left = pos + "px";
+    }
+  }
+}</code></pre>
+
     <h3>Полезные ссылки:</h3>
     <ul>
       <li><a href="">https://learn.javascript.ru/js-animation</a>JS анимации</li>
-      <li><a href="">#</a></li>
+
     </ul>
   </div>
   <script src="script.js"></script>
