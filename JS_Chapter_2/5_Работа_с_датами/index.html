@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../style.css">
+  <title>Работа с датами</title>
+</head>
+
+<body>
+  <a href="../../index.html">
+    <div class="home">в начало</div>
+  </a>
+
+  <div class="container">
+    <h1>Работа с датами</h1>
+    <a href="project/index.html">Проект урока</a>
+
+    <h3>показываем текущую дату и время из системы</h3>
+    <pre><code>const now = new Date();
+console.log(now); //2022-12-05T18:35:49.229Z</code></pre>
+
+    <h3>Метдоды для работы с датами</h3>
+    <h3>1 группа- получение компонентов с датами (Геттеры)</h3>
+    <pre><code>const now = new Date();
+console.log(now.getFullYear()); //2022
+console.log(now.getMonth()); //11
+console.log(now.getDate()); //5
+console.log(now.getDay()); //1
+
+//Учитываем UTC
+console.log(now.getUTCHours()); //18</code></pre>
+
+    <p>//Получаем разницу между часовым поясом и UTC</p>
+    <pre><code>const now = new Date();
+console.log(now.getTimezoneOffset()); //-180</code></pre>
+
+    <p>Получаем колличество милисекунд прошедших с 1 января 1970 года</p>
+    <pre><code>const now = new Date();
+console.log(now.getTime()); //1670266060422</code></pre>
+
+    <h3>2 группа- Установка и получение дат (Сеттеры)</h3>
+    <p>По сути <span>get</span> меняем на <span>set</span></p>
+    <pre><code>const now = new Date();
+console.log(now.setHours(18)); //1670255482646
+console.log(now); //2022-12-05T15:51:22.646Z</code></pre>
+
+    <p>Для примера напишем функцию засечения времени выполнения скрипта</p>
+    <pre><code>let start = new Date();
+
+for (let i = 0; i < 100000; i++) {
+  let some = i ** 3;
+}
+
+let end = new Date();
+console.log(`Цикл отработал за ${end - start} мс`); //Цикл отработал за 23 мс</code></pre>
+
+
+    <h3>Полезные ссылки:</h3>
+    <ul>
+      <li><a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Date">Документация по
+          Date</a></li>
+      <li><a href="https://learn.javascript.ru/date">Дата и время статья</a></li>
+    </ul>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
