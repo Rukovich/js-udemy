@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../style.css">
+  <title>Создаем модальное окно</title>
+</head>
+
+<body>
+  <a href="../../index.html">
+    <div class="home">в начало</div>
+  </a>
+
+  <div class="container">
+    <h1>Создаем модальное окно</h1>
+    <a href="project/index.html">Проект урока</a>
+
+    <pre><code>//Modal
+const modalTrigger = document.querySelectorAll('[data-modal]');
+const modal = document.querySelector('.modal');
+const modalCloseBtn = document.querySelector('[data-close]');
+
+function closeModal() {
+  modal.classList.toggle('show');
+  document.body.style.overflow = '';
+}
+
+modalTrigger.forEach(btn => {
+  btn.addEventListener('click', () => {
+    modal.classList.toggle('show');
+    document.body.style.overflow = 'hidden'; //Блокируем прокрутку страницы при открытом модальном окне
+  })
+})
+
+modalCloseBtn.addEventListener('click', closeModal)
+
+modal.addEventListener('click', (e) => { //Закрываем модальное окно кликом по экрану
+  if (e.target === modal) {
+    closeModal();
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.code === 'Escape' && modal.classList.contains('show')) { //Закрываем модальное окно нажатием на 'Escape'
+    closeModal ();
+  }
+})</code></pre>
+
+    <h3>Полезные ссылки:</h3>
+    <ul>
+      <li><a href="https://www.toptal.com/developers/keycode">Узнать код клавиши. code</a></li>
+      <li><a href="">#</a></li>
+    </ul>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
