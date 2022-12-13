@@ -1,53 +1,55 @@
-window.addEventListener('DOMContentLoaded', () => {
-  //Tabs
-  const tabs = document.querySelectorAll('.tabheader__item');
-  const tabsContent = document.querySelectorAll('.tabcontent');
-  const tabsParrent = document.querySelector('.tabheader__items');
 
-  // const tabActive = document.querySelector('.tabheader__item_active');
+window.addEventListener('DOMContentLoaded', function() {
 
-  function hideTabContent() { //Функция убирает табы
-    tabsContent.forEach(item => {
-      item.classList.add('hide'); 
-      item.classList.remove('show', 'fade');
-    });
+  // Tabs
+  
+let tabs = document.querySelectorAll('.tabheader__item'),
+  tabsContent = document.querySelectorAll('.tabcontent'),
+  tabsParent = document.querySelector('.tabheader__items');
 
-    tabs.forEach(item => {
-      item.classList.remove('tabheader__item_active');
-    });
-  }
-
-  function showTabContent(i = 0) { //номер аргумента по порядку (0 по умолчанию)
-    tabsContent[i].classList.add('show', 'fade'); //показываем блок
-    tabsContent[i].classList.remove('hide');
-    tabs[i].classList.add('tabheader__item_active'); //Добавляем класс активности нужному табу
-  }
-
-  hideTabContent(); //вызываем функцию скрытия табов
-  showTabContent(); //вызываем функцию показа табов
-
-  tabsParrent.addEventListener('click', (event) => {
-    const target = event.target; //задаем event.target в переменную
-
-    if (target && target.classList.contains('tabheader__item')) { //Проверяем точно ли мы попали в таб
-      tabs.forEach((item, i) => { //элемент который нужно перебрать и номер по порядку
-        if (target == item) { //Проверяем чтобы был один и тот же элемент
-          hideTabContent();
-          showTabContent(i);
-        }
+function hideTabContent() {
+      
+      tabsContent.forEach(item => {
+          item.classList.add('hide');
+          item.classList.remove('show', 'fade');
       });
-    }
-  });
 
-  //Timer
-  const deadline = '2022-12-30';
+      tabs.forEach(item => {
+          item.classList.remove('tabheader__item_active');
+      });
+}
+
+function showTabContent(i = 0) {
+      tabsContent[i].classList.add('show', 'fade');
+      tabsContent[i].classList.remove('hide');
+      tabs[i].classList.add('tabheader__item_active');
+  }
+  
+  hideTabContent();
+  showTabContent();
+
+tabsParent.addEventListener('click', function(event) {
+  const target = event.target;
+  if(target && target.classList.contains('tabheader__item')) {
+          tabs.forEach((item, i) => {
+              if (target == item) {
+                  hideTabContent();
+                  showTabContent(i);
+              }
+          });
+  }
+  });
+  
+  // Timer
+
+  const deadline = '2022-06-11';
 
   function getTimeRemaining(endtime) {
-      const t = Date.parse(endtime) - Date.parse(new Date());
-      const days = Math.floor( (t/(1000*60*60*24)) );
-      const seconds = Math.floor( (t/1000) % 60 );
-      const minutes = Math.floor( (t/1000/60) % 60 );
-      const hours = Math.floor( (t/(1000*60*60) % 24) );
+      const t = Date.parse(endtime) - Date.parse(new Date()),
+          days = Math.floor( (t/(1000*60*60*24)) ),
+          seconds = Math.floor( (t/1000) % 60 ),
+          minutes = Math.floor( (t/1000/60) % 60 ),
+          hours = Math.floor( (t/(1000*60*60) % 24) );
 
       return {
           'total': t,
@@ -68,12 +70,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
   function setClock(selector, endtime) {
 
-      const timer = document.querySelector(selector);
-         const days = timer.querySelector("#days");
-         const hours = timer.querySelector('#hours');
-         const minutes = timer.querySelector('#minutes');
-         const seconds = timer.querySelector('#seconds');
-         const timeInterval = setInterval(updateClock, 1000);
+      const timer = document.querySelector(selector),
+          days = timer.querySelector("#days"),
+          hours = timer.querySelector('#hours'),
+          minutes = timer.querySelector('#minutes'),
+          seconds = timer.querySelector('#seconds'),
+          timeInterval = setInterval(updateClock, 1000);
 
       updateClock();
 
@@ -93,40 +95,39 @@ window.addEventListener('DOMContentLoaded', () => {
 
   setClock('.timer', deadline);
 
-    // Modal
+  // Modal
 
-    const modalTrigger = document.querySelectorAll('[data-modal]'),
-        modal = document.querySelector('.modal'),
-        modalCloseBtn = document.querySelector('[data-close]');
+  const modalTrigger = document.querySelectorAll('[data-modal]'),
+      modal = document.querySelector('.modal'),
+      modalCloseBtn = document.querySelector('[data-close]');
 
-    modalTrigger.forEach(btn => {
-        btn.addEventListener('click', function() {
-            modal.classList.add('show');
-            modal.classList.remove('hide');
-            // Либо вариант с toggle - но тогда назначить класс в верстке
-            document.body.style.overflow = 'hidden';
-        });
-    });
+  modalTrigger.forEach(btn => {
+      btn.addEventListener('click', function() {
+          modal.classList.add('show');
+          modal.classList.remove('hide');
+          // Либо вариант с toggle - но тогда назначить класс в верстке
+          document.body.style.overflow = 'hidden';
+      });
+  });
 
-    function closeModal() {
-        modal.classList.add('hide');
-        modal.classList.remove('show');
-        // Либо вариант с toggle - но тогда назначить класс в верстке
-        document.body.style.overflow = '';
-    }
-    
-    modalCloseBtn.addEventListener('click', closeModal);
-
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            closeModal();
-        }
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if (e.code === "Escape" && modal.classList.contains('show')) { 
-            closeModal();
-        }
-    });
+  function closeModal() {
+      modal.classList.add('hide');
+      modal.classList.remove('show');
+      // Либо вариант с toggle - но тогда назначить класс в верстке
+      document.body.style.overflow = '';
+  }
   
+  modalCloseBtn.addEventListener('click', closeModal);
+
+  modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+          closeModal();
+      }
+  });
+
+  document.addEventListener('keydown', (e) => {
+      if (e.code === "Escape" && modal.classList.contains('show')) { 
+          closeModal();
+      }
+  });
 });
