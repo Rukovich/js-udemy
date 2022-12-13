@@ -47,7 +47,21 @@ document.addEventListener('keydown', (e) => {
   if (e.code === 'Escape' && modal.classList.contains('show')) { //Закрываем модальное окно нажатием на 'Escape'
     closeModal ();
   }
-})</code></pre>
+})
+
+// Модальное окно при прокрутке вниз страницы
+
+const modaTimerId = setTimeout(openModal, 3000);
+
+function showModalByScroll() {
+  if (window.pageYOffset + document.documentElement.clientHeight 
+    >= document.documentElement.scrollHeight -1) {
+      openModal();
+      window.removeEventListener('scroll', showModalByScroll)
+    }
+}
+
+window.addEventListener('scroll', showModalByScroll)</code></pre>
 
     <h3>Полезные ссылки:</h3>
     <ul>

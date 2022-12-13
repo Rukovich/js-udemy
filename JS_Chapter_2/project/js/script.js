@@ -134,7 +134,7 @@ tabsParent.addEventListener('click', function(event) {
       }
   });
 
-  // Модальное окно с setTimeout()
+  // Модальное окно при прокрутке вниз страницы
 
   const modaTimerId = setTimeout(openModal, 3000);
 
