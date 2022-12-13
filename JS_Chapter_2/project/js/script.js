@@ -99,30 +99,34 @@ window.addEventListener('DOMContentLoaded', () => {
     const modal = document.querySelector('.modal');
     const modalCloseBtn = document.querySelector('[data-close]');
 
-    function closeModal() {
-      modal.classList.toggle('show');
-      document.body.style.overflow = '';
-    }
-
     modalTrigger.forEach(btn => {
-      btn.addEventListener('click', () => {
-        modal.classList.toggle('show');
-        document.body.style.overflow = 'hidden'; //Блокируем прокрутку страницы при открытом модальном окне
-      })
-    })
+      btn.addEventListener('click', function() {
+          modal.classList.add('show');
+          modal.classList.remove('hide');
+          // Либо вариант с toggle - но тогда назначить класс в верстке
+          document.body.style.overflow = 'hidden';
+      });
+  });
 
-    modalCloseBtn.addEventListener('click', closeModal)
+  function closeModal() {
+      modal.classList.add('hide');
+      modal.classList.remove('show');
+      // Либо вариант с toggle - но тогда назначить класс в верстке
+      document.body.style.overflow = '';
+  }
+  
+  modalCloseBtn.addEventListener('click', closeModal);
 
-    modal.addEventListener('click', (e) => { //Закрываем модальное окно кликом по экрану
+  modal.addEventListener('click', (e) => {
       if (e.target === modal) {
-        closeModal();
+          closeModal();
       }
-    });
+  });
 
-    document.addEventListener('keydown', (e) => {
-      if (e.code === 'Escape' && modal.classList.contains('show')) { //Закрываем модальное окно нажатием на 'Escape'
-        closeModal ();
+  document.addEventListener('keydown', (e) => {
+      if (e.code === "Escape" && modal.classList.contains('show')) { 
+          closeModal();
       }
-    })
+  });
   
 });
