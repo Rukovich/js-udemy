@@ -16,8 +16,58 @@
 
   <div class="container">
     <h1>Контекст вызова. This</h1>
-    <a href="../project/index.html">ссылка в проект</a>
+<p>Контекст вызова - <span>this</span> в конструкторах и классах- это новый экземпляр объекта</p>
+<pre><code>function User(name, id) {
+  this.name = name;
+  this.id = id;
+  this.human = true;
+  this.hello = function() {
+      console.log('Hello' + this.name);
+  };
+}
+let ivan = new User('Ivan', 23);</code></pre>
 
+<h3>Ручная привязка this с помощью методов: call, apply, bind</h3>
+<p>с помощью методов <span>user</span> и <span>apply</span> можно вручную присвоить контекст <span>this</span> функции</p>
+<pre><code>function sayName(surname) {
+  console.log(this);
+  console.log(this.name + surname);
+}
+const user = {
+  name: 'John'
+};
+
+sayName.call(user, 'Smith'); //{name: 'John'} JohnSmith
+sayName.apply(user, ['Smith']); //{name: 'John'} JohnSmith</code></pre>
+
+<p>о же самое можно сделать с помощщью метода <span>bind</span>. Он создает новую функцию связанную с определенным контекстом.</p>
+<pre><code>function count(num) {
+  return this * num;
+}
+const double = count.bind(2);
+console.log(double(3)); //6
+console.log(double(13)); //26</code></pre>
+
+<h3>Например:</h3>
+<pre><code>const btn = document.querySelector('button');
+
+btn.addEventListener('click', function() {
+    this.style.backgroundColor = 'red' //При клике покрасти кнопку в красный
+});</code></pre>
+
+<h3>Контекст вызова при использовании стрелочной функции</h3>
+<p>В данном случае, так как используется стрелочная функция this обращается к родителю. Если мы переделаем функцию в обычную - будет ошибка</p>
+<pre><code>const obj = {
+  num: 5,
+  sayNumber: function() {
+      const say = () => {
+          console.log(this.num);
+      } 
+
+      say();
+  }
+};
+obj.sayNumber(); //5</code></pre>
     <h3>Полезные ссылки:</h3>
     <ul>
       <li><a href="https://tproger.ru/translations/javascript-this-keyword/">Гайд по this</a></li>
