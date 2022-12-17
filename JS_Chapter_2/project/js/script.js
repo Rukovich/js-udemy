@@ -142,10 +142,12 @@ tabsParent.addEventListener('click', function(event) {
     if (window.pageYOffset + document.documentElement.clientHeight 
       >= document.documentElement.scrollHeight -1) {
         openModal();
-        window.removeEventListener('scroll', showModalByScroll)
+        window.removeEventListener('scroll', showModalByScroll);
       }
   }
 
-  window.addEventListener('scroll', showModalByScroll)
+  window.addEventListener('scroll', showModalByScroll);
+
+  //Используем классы для карточек
 
 });
