@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../style.css">
+  <title>Rest оператор и параметры по умолчанию (ES6)</title>
+</head>
+
+<body>
+  <a href="../../index.html">
+    <div class="home">в начало</div>
+  </a>
+
+  <div class="container">
+    <h1>Rest оператор и параметры по умолчанию (ES6)</h1>
+    <h3>Rest оператор</h3>
+    <p>rest-оператор собирает все оставшиеся значения и формирует из них массив</p>
+    <pre><code>const log = function(a, b, ...rest) {
+  console.log(a, b, rest);
+};
+
+log('basic', 'rest', 'operator', 'usage'); //basic rest [ 'operator', 'usage' ]</code></pre>
+
+    <h3>Параметры по умолчанию</h3>
+    <p>Например зададим параметр по умолчаниию basis</p>
+
+    <pre><code>function calcOrDouble(number, basis = 2) { 
+      console.log(number * basis);
+    }
+    
+    calcOrDouble(3); //6</code></pre>
+
+
+    <h3>Применим на практике в нашем проекте</h3>
+    <pre><code>  class menuCard {
+constructor(img, alt, subtitle, descr, price, parentSelector, ...classes) {
+  this.img = img;
+  this.alt = alt;
+  this.subtitle = subtitle;
+  this.descr = descr;
+  this.price = price;
+  this.classes = classes;
+  this.parent = document.querySelector(parentSelector);
+  this.transfer = 27;
+  this.currencyConverter();
+}
+
+currencyConverter() {
+  this.price = +this.price * this.transfer;
+}
+
+render() {
+  const element = document.createElement("div");
+
+  if (this.classes.length === 0) { //задаем для класса параметры по умолчанию
+    this.element = 'menu__item';
+    element.classList.add(this.element);
+  } else {
+    this.classes.forEach(className => element.classList.add(className));
+  }
+
+  element.innerHTML = `
+        <.img src=${this.img} alt=${this.alt}>
+        <.h3 class="menu__item-subtitle">${this.subtitle}</>
+        <.div class="menu__item-descr">${this.descr}</>
+        <.div class="menu__item-divider"></>
+        <.div class="menu__item-price">
+            <. class="menu__item-cost">Цена:</>
+            <.div class="menu__item-total"><.span>${this.price}</.span> грн/день</>
+        <./div>
+    `;
+  this.parent.append(element); //помещаем элемент в конец заданного узла
+}
+}
+
+new menuCard(
+"img/tabs/vegy.jpg",
+"vegy",
+'Меню "Фитнес"',
+'Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!',
+9,
+'.menu .container'
+).render();
+
+new menuCard(
+"img/tabs/elite.jpg",
+"elite",
+'Меню “Премиум”',
+'В меню “Премиум” мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!',
+13,
+'.menu .container'
+).render();
+
+new menuCard(
+"img/tabs/post.jpg",
+"post",
+'Меню "Фитнес"',
+'Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков. ',
+5,
+'.menu .container'
+).render();</code></pre>
+
+    <a href="../project/index.html">ссылка в проект</a>
+
+    <h3>Полезные ссылки:</h3>
+    <ul>
+      <li><a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/Rest_parameters">Остаточные
+          параметры (rest parameters)</a></li>
+      <li><a
+          href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/Default_parameters">Параметры
+          по умолчанию</a></li>
+    </ul>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
