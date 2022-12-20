@@ -18,6 +18,48 @@
     <h1>AJAX и общение с сервером</h1>
     <a href="../project/index.html">ссылка в проект</a>
 
+    <h3>Релизуем конвертер валют, который берет курс с сервера</h3>
+
+
+
+    <p><span>Метод open()</span> - собирает настройки, которые помогут сделать запрос</p>
+    <p>open(method, url, async, login, password)</p>
+    <h3>Свойства XMLHttpRequest:</h3>
+    <ul>
+      <li>status - статус запроса;</li>
+      <li>statusText - текс статуса;</li>
+      <li>response - ответ от сервера;</li>
+      <li>readyState - содержит текущее состояние запроса;</li>
+    </ul>
+
+    <h3>События XMLHttpRequest:</h3>
+    <ul>
+      <li>readystatechange - Отслеживает статус готовности в текущий момент;</li>
+      <li>load - срабатывает когда запрос полностью загрузился</li>
+    </ul>
+
+    <pre><code>
+const inputRub = document.querySelector('#rub');
+const inputUSD = document.querySelector('#usd');
+
+inputRub.addEventListener('input', () => {
+  const request = new XMLHttpRequest(); //Делаем запрос на сервер
+
+  request.open('GET', 'js/current.json');
+  request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+
+  request.send();
+
+  request.addEventListener('load', () => {
+    if (request.status == 200) {
+      const data = JSON.parse(request.response);
+      inputUSD.value = (+inputRub.value / data.current.usd).toFixed(2);
+    } else {
+      inputUSD.value = 'Что-то пошло не так';
+    }
+  });
+});</code></pre>
+
     <h3>Полезные ссылки:</h3>
     <ul>
       <li><a href="https://developer.mozilla.org/ru/docs/Web/API/XMLHttpRequest">XMLHttpRequest</a></li>
