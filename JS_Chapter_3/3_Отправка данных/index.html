@@ -24,11 +24,11 @@ $_POST = json_decode(file_get_contents("php://input"), true)
 echo var_dump($_POST);</code></pre>
 
     <p>Далее:</p>
-    <pre><code>  //Forms server
+    <pre><code>//Forms server
 const forms = this.document.querySelectorAll('form');
 
 const message = {
-  loading: 'Загрузка',
+  loading: 'img/form/spinner.svg', //Спиннер загрузки
   success: 'Спасибо! Скоро мы с вами свяжемся',
   failure: 'Что-то пошло не так...'
 };
@@ -43,10 +43,14 @@ function postData(form) {
     //Отменяем стандартное поведение браузера, по перезагрузке страницы
     e.preventDefault();
 
-    let statusMessage = document.createElement('div');
-    statusMessage.classList.add('status');
-    statusMessage.textContent = message.loading;
-    form.appendChild(statusMessage);
+    let statusMessage = document.createElement('img');
+    statusMessage.src = message.loading;
+    statusMessage.style.cssText = `
+      display: block;
+      margin: 0 auto;
+    `;
+    //Добавляем спиннер на страницу
+    form.insertAdjacentElement('afterend', statusMessage);
 
     const request = new XMLHttpRequest();
     request.open('POST', 'server.php');
@@ -68,16 +72,49 @@ function postData(form) {
     request.addEventListener('load', () => {
       if (request.status === 200) {
         console.log(request.response);
-        statusMessage.textContent = message.success;
+        showThanksModal(message.success);
         form.reset(); //Сбрасываем форму
-        setTimeout(() => { //Удаляем уведомление формы через 3 секунды
-          statusMessage.remove();
-        }, 3000);
+        statusMessage.remove(); //Удаляем спинер
       } else {
-        statusMessage.textContent = message.failure;
+        showThanksModal(message.failure); //Если что-то пошло не так
       }
     });
   });
+}
+
+//Уведомление модального окна
+
+function showThanksModal(message) {
+  const prevModalDialog = document.querySelector('.modal__dialog');
+
+  //Скрываем модального окна
+  prevModalDialog.classList.add('hide');
+
+  //Открываем структуру модального окна
+  openModal();
+
+  //Формируем новую структуру
+  const thanksModal = document.createElement('div');
+  thanksModal.classList.add('modal__dialog');
+  thanksModal.innerHTML = `
+  <.div class="modal__content">
+      <.div class="modal__close" data-close>×</.div>
+      <.div class="modal__title">${message}</.div>
+  </.div>
+  `;
+  
+  //Получаем модальное окно
+  document.querySelector('.modal').append(thanksModal);
+
+  //Удаляем оповещение окно после использования
+  setTimeout(() => {
+    thanksModal.remove();
+
+    //Открываем модальное окно
+    prevModalDialog.classList.add('show'); 
+    prevModalDialog.classList.remove('hide');
+    closeModal();
+  }, 4000);
 }</code></pre>
 
     <h3>Полезные ссылки:</h3>
