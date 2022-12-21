@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../style.css">
+  <title>Promise (ES6)</title>
+</head>
+
+<body>
+  <a href="../../index.html">
+    <div class="home">в начало</div>
+  </a>
+
+  <div class="container">
+    <h1>Promise (ES6)</h1>
+
+    <h3>Объект Promise используется для отложенных и асинхронных вычислений</h3>
+    <p>Её аргументы <span>resolve</span> и <span>reject</span> – это колбэки, которые предоставляет сам JavaScript. Наш
+      код – только внутри исполнителя.</p>
+
+    <p>Когда он получает результат, сейчас или позже – не важно, он должен вызвать один из этих колбэков:</p>
+    <p><span>resolve(value)</span> — если работа завершилась успешно, с результатом value.</p>
+    <p><span>reject(error)</span> — если произошла ошибка, error – объект ошибки.</p>
+
+    <p>Синтаксис:</p>
+    <pre><code>new Promise(executor);
+new Promise(function(resolve, reject) { ... });</code></pre>
+
+    <h3>Методы:</h3>
+    <h3>Promise.prototype.catch()</h3>
+    <p>Метод catch() возвращает промис (Promise() и работает только в случае отклонения промиса</p>
+    <pre><code>p.catch(onRejected);
+
+p.catch(function(reason) {
+    // отказ
+});</code></pre>
+
+    <h3>Promise.prototype.then()</h3>
+    <p>Метод then() возвращает Promise. Метод может принимать два аргумента: колбэк-функции для случаев выполнения и
+      отклонения промиса.</p>
+    <pre><code>p.then(onFulfilled[, onRejected]);
+
+p.then(value => {
+  // выполнение
+  }, reason => {
+  // отклонение
+});</code></pre>
+
+    <h3>Promise.prototype.finally()</h3>
+    <p>Метод finally() возвращает Promise. Когда промис был выполнен, вне зависимости успешно или с ошибкой, указанная
+      функция будет выполнена. Это даёт возможность запустить один раз определённый участок кода, который должен
+      выполниться вне зависимости от того, с каким результатом выполнился Promise</p>
+
+    <pre><code>p.finally(onFinally);
+
+p.finally(function() {
+    // завершён (успешно или с ошибкой)
+});
+
+p.finally(() => {
+// завершён (успешно или с ошибкой)
+});</code></pre>
+
+    <h3>Promise.all()</h3>
+    <p>Метод Promise.all(iterable) возвращает промис, который выполнится тогда, когда будут выполнены все промисы,
+      переданные в виде перечисляемого аргумента, или отклонено любое из переданных промисов.</p>
+    <pre><code>Promise.all(iterable);</code></pre>
+
+    <h3>Promise.race()</h3>
+    <p>Метод Promise.race(iterable) возвращает выполненный или отклонённый промис, в зависимости от того, с каким
+      результатом завершится первый из переданных промисов, со значением или причиной отклонения этого промиса.</p>
+
+    <pre><code>const promise1 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 500, 'one');
+});
+
+const promise2 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 100, 'two');
+});
+
+Promise.race([promise1, promise2]).then((value) => {
+  console.log(value);
+  // Both resolve, but promise2 is faster
+});
+// expected output: "two"</code></pre>
+
+    <h3>Пример промиса из урока:</h3>
+    <pre><code>console.log('Запрос данных');
+
+const req = new Promise(function(resolve, reject) {
+  setTimeout(() => {
+    console.log('Подготовка данных...');
+
+    const product = {
+      name: 'TV',
+      price: 2000
+    };
+
+    //передаем данные
+    resolve(product);
+  }, 2000);
+});
+
+//Обрабатывает положительный результат
+req.then((product) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      product.status = 'order';
+      resolve(product);
+    }, 2000);
+  }).then(data => { //Используем промис
+    data.modify = true;
+    return data;
+  }).then((data) => {
+    console.log(data);
+  });
+}).catch(() => { //В случае ошибки
+  console.error('Произошла чудовищная ошибка');
+}).finally(() => { //В любом случае
+  console.log('Finally');
+});
+</code></pre>
+
+
+    <h3>Полезные ссылки:</h3>
+    <ul>
+      <li><a href="https://learn.javascript.ru/promise-basics">Промисы 1</a></li>
+      <li><a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise">Промисы 2</a>
+      </li>
+      <li><a href="https://stasonmars.ru/javascript/promisy-v-javascript-dlya-chainikov/">Наглядный пример пример
+          промисов</a>
+      </li>
+    </ul>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
