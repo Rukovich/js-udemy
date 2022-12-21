@@ -39,7 +39,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
   // Timer
 
-  const deadline = "2022-06-11";
+  const deadline = "2023-06-11";
 
   function getTimeRemaining(endtime) {
     const t = Date.parse(endtime) - Date.parse(new Date()),
@@ -215,4 +215,60 @@ window.addEventListener("DOMContentLoaded", function () {
     5,
     '.menu .container'
   ).render();
+
+  //Forms server
+  const forms = this.document.querySelectorAll('form');
+
+  const message = {
+    loading: 'Загрузка',
+    success: 'Спасибо! Скоро мы с вами свяжемся',
+    failure: 'Что-то пошло не так...'
+  };
+
+  forms.forEach(item => {
+    postData(item);
+  });
+
+  function postData(form) {
+    //submit срабатывает каждый раз, когда мы отправляем какую-то форму
+    form.addEventListener('submit', (e) => { 
+      //Отменяем стандартное поведение браузера, по перезагрузке страницы
+      e.preventDefault();
+
+      let statusMessage = document.createElement('div');
+      statusMessage.classList.add('status');
+      statusMessage.textContent = message.loading;
+      form.appendChild(statusMessage);
+
+      const request = new XMLHttpRequest();
+      request.open('POST', 'server.php');
+      request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+      const formData = new FormData(form);
+
+      //На основании данных value формирует объект при помощи перебора
+      const object = {};
+      formData.forEach(function(value, key) {
+        object[key] = value;
+      });
+
+      //Конвертируем в JSON
+      const json = JSON.stringify(object);
+
+      //Отправка данных на сервер
+      request.send(json);
+
+      request.addEventListener('load', () => {
+        if (request.status === 200) {
+          console.log(request.response);
+          statusMessage.textContent = message.success;
+          form.reset(); //Сбрасываем форму
+          setTimeout(() => { //Удаляем уведомление формы через 3 секунды
+            statusMessage.remove();
+          }, 3000);
+        } else {
+          statusMessage.textContent = message.failure;
+        }
+      });
+    });
+  }
 });
