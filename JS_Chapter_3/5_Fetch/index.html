@@ -16,6 +16,27 @@
 
   <div class="container">
     <h1>Fetch API</h1>
+    <h3>Перепишем наш запрос на сервер с помощью Fetch</h3>
+    <pre><code>      fetch('server.php', {
+  headers: {
+    'Content-type': 'application/json'
+  },
+  method: "POST",
+  body: JSON.stringify(object) //Конвертируем в JSON
+})
+.then(data => data.text())
+.then(data => {
+    console.log(data);
+    showThanksModal(message.success);
+    form.reset(); //Сбрасываем форму
+    statusMessage.remove(); //Удаляем спинер
+})
+.catch(() => {
+  showThanksModal(message.failure); //Если что-то пошло не так
+})
+.finally(() => {
+  form.reset();
+});</code></pre>
 
     <h3>Полезные ссылки:</h3>
     <ul>
