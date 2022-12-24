@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../style.css">
+  <title>Методы перебора массивов</title>
+</head>
+
+<body>
+  <a href="../../index.html">
+    <div class="home">в начало</div>
+  </a>
+
+  <div class="container">
+    <h1>Методы перебора массивов</h1>
+
+    <h3>filter</h3>
+    <p>Ну тут все просто, метод позволяет фильтровать массив по определенному признаку</p>
+<pre><code>const names = ['Ivan', 'Ann', 'Ksenia', 'Voldemart'];
+
+const shortNames = names.filter(name => name.length < 5);
+console.log(shortNames); //[ 'Ivan', 'Ann' ]</code></pre>
+
+  <h3>map</h3>
+  <p>позволяет взять исходный массив и изменить каждый элемент внутри него</p>
+<pre><code>const answers = ['IvAn', 'AnnA', 'Hello'];
+
+const result = answers.map(item => item.toLocaleLowerCase());
+console.log(result); //[ 'ivan', 'anna', 'hello' ]</code></pre>
+
+  <h3>some и every</h3>
+  <p>оба метода возвращают булиновое значение</p>
+  <p><span>some</span> - если один из элементов соответсвует</p>
+  <p><span>every</span> - если все элементы соответсвуют</p>
+
+  <pre><code>const some = [4, 'qwwq', 'asasad'];
+
+console.log(some.some(item => typeof(item) === 'number')); //true
+console.log(some.every(item => typeof(item) === 'number')); //false</code></pre>
+
+    <h3>reduce</h3>
+    <p>применяет функцию reducer к каждому элементу массива (слева-направо), возвращая одно результирующее значение.</p>
+    <pre><code>const arr = [4, 5, 1, 3, 2, 6];
+const res = arr.reduce((sum, current) => sum + current);
+console.log(res); //21
+
+const arr = ['apple', 'pear', 'plum'];
+const res = arr.reduce((sum, current) => `${sum}, ${current}`);
+console.log(res); //apple, pear, plum</code></pre>
+
+
+<h3>Немного практики</h3>
+<p>Вернем из объекта два первых значения в виде массива используя методы перебора</p>
+<pre><code>const obj = {
+  ivan: 'persone',
+  ann: 'persone',
+  dog: 'animal',
+  cat: 'animal'
+};
+
+const newArr = Object.entries(obj) //превращаем объект в массив
+.filter(item => item[1] === 'persone') //используем метод filter
+.map(item => item[0])
+
+console.log(newArr); //[ [ 'ivan', 'persone' ], [ 'ann', 'persone' ] ]</code></pre>
+    <h3>Полезные ссылки:</h3>
+    <ul>
+      <li><a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/map">map</a></li>
+      <li><a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">filter</a></li>
+      <li><a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce">Reduce</a></li>
+      <li><a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/entries">Object.entries()</a></li>
+    </ul>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
