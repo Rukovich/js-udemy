@@ -15,9 +15,26 @@
   </a>
 
   <div class="container">
-    <h1>Получение даных с сервера. Async / Awayt</h1>
-    <a href="../project/index.html">ссылка в проект</a>
+    <h1>Получение даных с сервера. c</h1>
+    <h3>Async / Awayt</h3>
+    <p>Async / Awayt предназначены для работы с промисами и работают только парно. <br>
+      <span>async</span> - говорит, что внутри функции будет какой-то асинхронный код <br>
+      <span>awayt</span> - ставим перед теми операциями, корторые необходимо дождаться
+    </p>
+    <p>Пример из проекта к этому уроку</p>
+    <pre><code>  const postData = async (url, data) => {
+  const res = await fetch(url, {
+    headers: {
+      "Content-type": "application/json",
+    },
+    method: "POST",
+    body: data,
+  });
 
+  return await res.json(); //Обрабатываем как JSON формат
+};</code></pre>
+
+    <p>В этом уроке мы переписали проект так, чтобы данные для карточки поступали из сервера</p>
     <h3>Полезные ссылки:</h3>
     <ul>
       <li><a href="">#</a></li>
