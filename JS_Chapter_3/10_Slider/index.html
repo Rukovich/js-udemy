@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../style.css">
+  <title>Создаем слайдер на сайте</title>
+</head>
+
+<body>
+  <a href="../../index.html">
+    <div class="home">в начало</div>
+  </a>
+
+  <div class="container">
+    <h1>Создаем слайдер на сайте</h1>
+
+    <details>
+      <summary>Реализация простого слайдера в проекте</summary>
+      <pre><code> //Slider 1
+
+const slides = document.querySelectorAll(".offer__slide");
+const prev = document.querySelector(".offer__slider-prev");
+const next = document.querySelector(".offer__slider-next");
+  //элементы для получения счетчика:
+const total = document.querySelector('#total');
+const current = document.querySelector('#current');
+
+
+let slideIndex = 1; //индекс, который определяет текущее положение слайдера
+
+showSlides(slideIndex);
+
+if(slides.length < 10) {
+  total.textContent = `0${slides.length}`;
+} else {
+  total.textContent = slides.length;
+}
+
+//функция показа и скрытия слайдев
+function showSlides(n) {
+  //Если ушли в правую границу, то перемещаемся вначало
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+  //Обратная операция, перемещаем в левую границу
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
+  slides.forEach((item) => (item.style.display = "none"));
+  slides[slideIndex - 1].style.display = "block";
+
+  if(slides.length < 10) {
+    current.textContent = `0${slideIndex}`;
+  } else {
+    current.textContent = slideIndex;
+  }
+}
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+prev.addEventListener('click', () => {
+  plusSlides(-1);
+});
+
+next.addEventListener('click', () => {
+  plusSlides(1);
+});</code></pre>
+    </details>
+
+    <h3>Полезные ссылки:</h3>
+    <ul>
+      <li><a href="">#</a></li>
+      <li><a href="">#</a></li>
+    </ul>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
