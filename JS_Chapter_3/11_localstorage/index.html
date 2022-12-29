@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../style.css">
+  <title>localstorage</title>
+</head>
+
+<body>
+  <a href="../../index.html">
+    <div class="home">в начало</div>
+  </a>
+
+  <div class="container">
+    <h1>localstorage. Как сохранить данные без БД</h1>
+    <a href="project/index.html">ссылка в проект</a>
+    <p>Объекты веб-хранилища localStorage и sessionStorage позволяют хранить пары ключ/значение в браузере.</p>
+    <p>LocalStorage нужен только для одного — хранить определенные данные между сессиями пользователя. Можно придумать
+      тысячу и одну вещь, которую можно хранить в локальном хранилище браузера. Например, браузерные игры, которые
+      используют его как сохраненку, или записать момент, на котором пользователь остановился при просмотре видео,
+      различные данные для форм и т.д.</p>
+
+    <p>для работы с localStorage нужно всего 4 команды:</p>
+
+    <h3>localStorage.setItem()</h3>
+    <p>записывает в глобальный объект ключ / значение</p>
+    <pre><code>localStorage.setItem("number", 5);</code></pre>
+
+    <h3>localStorage.getItem()</h3>
+    <p>Получает данные из localStorage</p>
+    <pre><code>localStorage.getItem("number"); //5</code></pre>
+
+    <h3>localStorage.removeItem()</h3>
+    <p>Удяляет значение</p>
+    <pre><code>localStorage.removeItem("number"); //null</code></pre>
+
+    <h3>localStorage.clear()</h3>
+    <p>Очищает хранилище</p>
+    <pre><code>localStorage.clear()</code></pre>
+
+    <h3>Разберем на практике</h3>
+
+    <details>
+      <summary>Практика</summary>
+      <p>Код из проекта</p>
+      <pre><code>const checkbox = document.querySelector("#checkbox");
+const form = document.querySelector("form");
+const change = document.querySelector("#color");
+
+if (localStorage.getItem("isChecked")) {
+  checkbox.checked = true;
+}
+
+if (localStorage.getItem("bg") === "changed") {
+  form.style.backgroundColor = "red";
+}
+
+checkbox.addEventListener("change", () => {
+  localStorage.setItem("isChecked", true);
+});
+
+change.addEventListener("click", () => {
+  if (localStorage.getItem("bg") === "changed") {
+    localStorage.removeItem("bg");
+    form.style.backgroundColor = "#fff";
+  } else {
+    localStorage.setItem("bg", "changed");
+    form.style.backgroundColor = "red";
+  }
+});</code></pre>
+
+      <p>Переводим в формат JSON</p>
+      <pre><code>
+const persone = {
+  name: "Alex",
+  age: 25,
+};
+const serializedPersone = JSON.stringify(persone);
+localStorage.setItem("alex", serializedPersone);
+console.log(JSON.parse(localStorage.getItem("alex"))); //{name: "Alex", age: 25}
+      </code></pre>
+    </details>
+
+
+    <h3>Полезные ссылки:</h3>
+    <ul>
+      <li><a href="https://learn.javascript.ru/localstorage">LocalStorage, sessionStorage</a></li>
+      <li><a href="https://tproger.ru/articles/localstorage/">LocalStorage на пальцах</a></li>
+    </ul>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
