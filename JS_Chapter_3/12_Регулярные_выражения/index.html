@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../style.css">
+  <title>Регулярные выражения</title>
+</head>
+
+<body>
+  <a href="../../index.html">
+    <div class="home">в начало</div>
+  </a>
+
+  <div class="container">
+    <h1>Регулярные выражения</h1>
+    <p>Регулярные выражения – мощное средство поиска и замены в строке.</p>
+    <p>Регулярное выражение (оно же «регэксп», «регулярка» или просто «рег»), состоит из шаблона (также говорят
+      «паттерн») и необязательных флагов.</p>
+    <p>Существует два синтаксиса для создания регулярного выражения.</p>
+    <p>Длинный синтаксис</p>
+    <pre><code>regexp = new RegExp("шаблон", "флаги");</code></pre>
+
+    <p>Короткий синтаксис</p>
+    <pre><code>regexp = /шаблон/; // без флагов
+regexp = /шаблон/gmi; // с флагами gmi (будут описаны далее)</code></pre>
+
+    <h3>Флаги</h3>
+    <p>Регулярные выражения могут иметь флаги, которые влияют на поиск.</p>
+    <ol>
+      <li>
+        <span>i</span> <br>
+        <p>С этим флагом поиск не зависит от регистра: нет разницы между A и a</p>
+      </li>
+      <li>
+        <span>g</span> <br>
+        <p>С этим флагом поиск ищет все совпадения, без него – только первое.</p>
+      </li>
+      <li>
+        <span>m</span> <br>
+        <p>Многострочный режим</p>
+      </li>
+      <!-- <li>
+        <span>s</span> <br>
+        <p>Включает режим «dotall», при котором точка . может соответствовать символу перевода строки \n</p>
+      </li>
+      <li>
+        <span>u</span> <br>
+        <p>Включает полную поддержку Юникода. Флаг разрешает корректную обработку суррогатных пар</p>
+      </li>
+      <li>
+        <span>y</span> <br>
+        <p>Режим поиска на конкретной позиции в тексте</p>
+      </li> -->
+    </ol>
+
+    <h3>Классы символов</h3>
+    <ol>
+      <li>
+        <span>\d</span> <br>
+        <p>Ищет только цифры</p>
+      </li>
+      <li>
+        <span>\w</span> <br>
+        <p>Ищет все буквы</p>
+      </li>
+      <li>
+        <span>\s</span> <br>
+        <p>Ищет все пробелы</p>
+      </li>
+    </ol>
+
+    <h3>Методы строк:</h3>
+
+    <h3>serach()</h3>
+    <p>выдает первую позицию по которой находит определенный резултьтат</p>
+    <pre><code>const ans = prompt("Введите ваше имя");
+console.log(ans.search(/n/));</code></pre>
+
+    <h3>match()</h3>
+    <p>получаем результат в виде массива</p>
+    <pre><code>const ans = prompt("Введите ваше имя");
+console.log(ans.match(/n/)); //['n', index: 1, input: 'ann', groups: undefined]</code></pre>
+
+    <h3>replace()</h3>
+    <p>помещает в себя 2 аргумента: что мы заменяем и на что заменяем</p>
+    <pre><code>const ans = prompt("Ваш пароль");
+console.log(ans.replace(/./g, "*")); //****</code></pre>
+    <p>меняем <span>-</span> на <span>:</span></p>
+    <pre><code>console.log("12-34-56".replace(/-/g, ":")); //12:34:56</code></pre>
+
+    <h3>методы саих регулярок</h3>
+
+    <h3>test()</h3>
+    <p>етод regexp.test(str) проверяет, есть ли хоть одно совпадение, если да, то возвращает true, иначе false.</p>
+    <pre>const ans = prompt("Введите ваше имя");
+const reg = /n/gi;
+console.log(reg.test(ans)); //tru или false<code></code></pre>
+
+    <h3>Примеры:</h3>
+    <pre><code>const str = "My name is R2D2";
+console.log(str.match(/\w\d\w\d/)); //R2D2</code></pre>
+
+    <h3>Используем в нашем проекте</h3>
+    <p>Заменяем</p>
+    <pre><code>(offset == +width.slice(0, width.length - 2))</code></pre>
+    <p>на</p>
+    <pre><code>(offset == +width.replace(/\D/g, ''))</code></pre>
+    <h3>Полезные ссылки:</h3>
+    <ul>
+      <li><a href="https://regex101.com/">Конструкция регулярных выражений</a></li>
+      <li><a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/RegExp">Документация
+          RegExp</a></li>
+      <li><a href="https://learn.javascript.ru/regular-expressions">Регулярные выражения учебник</a></li>
+    </ul>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
