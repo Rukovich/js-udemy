@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../style.css">
+  <title>Инкапсуляция</title>
+</head>
+
+<body>
+  <a href="../../index.html">
+    <div class="home">в начало</div>
+  </a>
+
+  <div class="container">
+    <h1>Инкапсуляция</h1>
+    <p>Инкапсуляция является одним из ключевых понятий объектно-ориентированного программирования и представляет сокрытие состояния объекта от прямого доступа извне. 
+      По умолчанию все свойства объектов являются публичными, к ним можно обратиться из любого метса</p>
+
+<pre><code>function User(name, age) {
+  this.name = name;
+  this.age = age;
+
+  this.say = function() {
+      console.log(`Имя пользователя ${this.name}, возраст ${this.age}`);
+  }
+}
+
+const ivan = new User('Ivan', 27);
+//Получаем доступ к свойствам
+console.log(ivan.name);
+console.log(ivan.age);
+
+//Напрямую изменяем свйства
+ivan.age = 30;
+ivan.name = 'Alex';
+ivan.say()</code></pre>
+
+<p>Но мы можем их скрыть от доступа извне, сделав свойства локальными переменными</p>
+<pre><code>
+  function User(name, age) {
+    this.name = name;
+    let userAge = age; //создаем переменную, к которой не будет доступа вне функции
+
+    this.say = function() {
+        console.log(`Имя пользователя ${this.name}, возраст ${userAge}`);
+    }
+}
+
+const ivan = new User('Ivan', 27);
+console.log(ivan.name);
+console.log(ivan.userAge);
+
+//Напрямую изменяем свйства
+ivan.age = 30;
+ivan.name = 'Alex';
+ivan.say()
+</code></pre>
+
+<h3>Пример синтаксиса инкапсуляции</h3>
+<pre><code>function User(name, age) {
+  this.name = name;
+  let userAge = age;
+
+  this.say = function() {
+      console.log(`Имя пользователя ${this.name}, возраст ${userAge}`);
+  }
+
+  //Создаем геттеры и сеттеры
+  this.getAge = function() {
+      return userAge
+  }
+  this.setAge = function() {
+      if (typeof age === 'number' && age > 0 && age < 110) {
+          userAge = age;
+      } else {
+          console.log('Недопустимое значение!')
+      }
+  }
+}
+
+const ivan = new User('Ivan', 27);
+console.log(ivan.name);
+console.log(ivan.getAge()); //Получаем возраст
+
+ivan.setAge(30); //Устанавливаем возраст
+console.log(ivan.getAge());
+ivan.say()</code></pre>
+
+<h3>Пример инкапсуляциии на классах</h3>
+<pre><code>'use strict';
+
+  class User {
+      constructor(name, age) {
+          this.name = name;
+          this._age = age;
+      }
+  
+      say() {
+          console.log(`Имя пользователя ${this.name}, возраст ${this._age}`);
+      }
+  
+      //Создаем геттеры и сеттеры
+      get age() {
+          return this._age;
+      }
+      set age(age) {
+          if (typeof age === 'number' && age > 0 && age < 110) {
+              this._age = age;
+          } else {
+              console.log('Недопустимое значение!')
+          }
+      }
+  }
+  
+  const ivan = new User('Ivan', 27);
+  console.log(ivan.age);
+  ivan.age = 99;
+  console.log(ivan.age);
+  ivan.say();</code></pre>
+
+    <h3>Полезные ссылки:</h3>
+    <ul>
+      <li><a href="http://www.codenet.ru/progr/cpp/ipn.php">Инкапсуляция, полиморфизм, наследование</a></li>
+      <li><a href="https://medium.com/devschacht/javascripts-new-private-class-fields-c60daffe361b">Новые #приватные поля классов в JavaScript</a></li>
+    </ul>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
