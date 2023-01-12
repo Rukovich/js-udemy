@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../style.css">
+  <title>примем модуль</title>
+</head>
+
+<body>
+  <a href="../../index.html">
+    <div class="home">в начало</div>
+  </a>
+
+  <div class="container">
+    <h1>примем модуль</h1>
+    <p>Прием модулей позволяет нам создавать отдельные области видимости в скриптах, чтобы отделить логические части
+      друг от друга</p>
+
+    <h3>1 способ - использование анонимной самовызывающующий функции</h3>
+    <pre><code>const app = "123";
+
+const number = 1;
+(function () {
+  let number = 2;
+  console.log(number);
+  console.log(number + 3);
+})();
+
+console.log(number); //2 5 1</code></pre>
+
+    <h3>2 способ - с помощью объектного интерфейса</h3>
+    <p>//Анонимная самовызывающаяся функция создает объект, объект записываем в user и через точку можем обращаться к
+      нужным свойствам или методам</p>
+    <pre><code>const user = (function () {
+  const privat = function () {
+    console.log("I am privat");
+  };
+  return {
+    sayHello: privat,
+  };
+})();
+
+user.sayHello(); //I am privat</code></pre>
+
+    <p>В такие функции мы можем поместить часть нашего функционала, чтобы разделить на отдельные модули</p>
+
+    <h3>Полезные ссылки:</h3>
+    <ul>
+      <li><a href="https://habr.com/ru/company/ruvds/blog/419997/">Разбор паттерна «Модуль» в JavaScript</a></li>
+      <li><a href="">#</a></li>
+    </ul>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
