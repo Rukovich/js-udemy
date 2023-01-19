@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../style.css">
+  <title>ошибки</title>
+</head>
+
+<body>
+  <a href="../../index.html">
+    <div class="home">в начало</div>
+  </a>
+
+  <div class="container">
+    <h1>ошибки</h1>
+    <h3>Чтобы ошибки не сломали весь код, можно использовать конструкцию <span>try / catch</span> </h3>
+    <p>Конструкция try...catch пытается выполнить инструкции в блоке try, и, в случае ошибки, выполняет блок catch.</p>
+
+    <h3>Синтаксис:</h3>
+    <pre><code>try {
+    console.log('normal');
+    console.log(a); //ошибка
+    console.log('result'); 
+}  catch(error) { //объект ошибки
+    console.log(error.name); //название ошибки
+    console.log(error.message); //сообщение
+    console.log(error.stack); //стек ошибок
+
+    //Не обязательный блок- завершает операции в любом случае
+}  finally { 
+
+}</code></pre>
+
+<h3>Еще пример</h3>
+<pre><code>try {
+  myroutine(); // может выбрасывать три вида исключений
+} catch (e) {
+  if (e instanceof TypeError) {
+    // обработка исключения TypeError
+  } else if (e instanceof RangeError) {
+    // обработка исключения RangeError
+  } else if (e instanceof EvalError) {
+    // обработка исключения EvalError
+  } else {
+    // обработка остальных исключений
+    logMyErrors(e); // передать обработчику ошибок
+  }
+}</code></pre>
+
+
+    <h3>Полезные ссылки:</h3>
+    <ul>
+      <li><a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/try...catch">Try / catch</a></li>
+      <li><a href="">#</a></li>
+    </ul>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
