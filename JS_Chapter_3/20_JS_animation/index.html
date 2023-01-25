@@ -16,7 +16,50 @@
 
   <div class="container">
     <h1>JavaScript-анимации</h1>
+    <a href="example/index.html">ссылка на пример</a>
+    <h3>requestAnimationFrame()</h3>
+    <p>указывает браузеру на то, что вы хотите произвести анимацию, и просит его запланировать перерисовку на следующем
+      кадре анимации. В качестве параметра метод получает функцию, которая будет вызвана перед перерисовкой.</p>
 
+    <h3>Старая форма записи анимаций</h3>
+    <pre><code>const elem = document.querySelector(".box");
+let pos = 0;
+function myAnimation() {
+    let pos = 0;
+
+    const id = setInterval(frame, 10);
+    function frame() {
+        if (pos == 300) {
+            clearInterval(id);
+        } else {
+            pos++;
+            elem.style.top = pos + "px";
+            elem.style.left = pos + 'px';
+        }
+    }
+}</code></pre>
+
+    <h3>Форма записи с помощью requestAnimationFrame()</h3>
+    <pre><code>const btn = document.querySelector(".btn");
+const elem = document.querySelector(".box");
+let pos = 0;
+
+function myAnimation() {
+  pos++;
+  elem.style.top = pos + "px";
+  elem.style.left = pos + "px";
+
+  if (pos < 300) {
+    requestAnimationFrame(myAnimation);
+  }
+}
+
+btn.addEventListener("click", () => requestAnimationFrame(myAnimation));
+
+let id = requestAnimationFrame(myAnimation);
+cancelAnimationFrame(id);</code></pre>
+
+    <h3>Web Animations API</h3>
 
     <h3>Полезные ссылки:</h3>
     <ul>
@@ -27,8 +70,8 @@
       <li><a href="https://html5.by/blog/what-is-requestanimationframe/">Что такое requestAnimationFrame?</a>
       </li>
       <li><a href="https://html5book.ru/css3-animation/"></a>CSS3-анимация</li>
-      <li><a href=""></a></li>
-      <li><a href="">#</a></li>
+      <li><a href="https://developer.mozilla.org/ru/docs/Web/API/Animation"></a>Web Animations API</li>
+      <li><a href="https://developer.mozilla.org/ru/docs/Web/API/Element/animate">Element.animate()</a></li>
     </ul>
   </div>
   <script src="script.js"></script>
